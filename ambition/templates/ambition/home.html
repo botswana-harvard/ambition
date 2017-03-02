@@ -1,0 +1,41 @@
+{% extends base_template_name %}
+{% load staticfiles %}
+
+{% block main %}
+
+<style>
+
+.bg-1 {
+    background-color: #428bca; /* dark blue */
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #5bc0de; /* light Blue */
+    color: #ffffff;
+}
+.bg-3 {
+    background-color: #f9f9f9; /* White */
+    color: #555555;
+}
+
+</style>
+
+    {{ block.super }}
+
+<div class="container bg-3 text-center">
+	<h3 class="text text-muted">Subjects</h3>
+		<h3>
+			<a href="{% url 'ambition_subject:listboard_url' %}" class="btn btn-default btn-lg"><i class="fa fa-user-circle-o fa-lg"></i> Subjects</a>
+		</h3>
+
+
+</div>
+<div class="container bg-3 text-center">
+<h3 class="text text-muted">Transfer data to the server...</h3>
+	<h3>
+	<a href="{% url 'edc_sync:home_url' %}" class="btn btn-default btn-lg"><i class="fa fa-exchange fa-lg"></i> Synchronization</a>
+	</h3>
+</div>
+
+
+{% endblock main %}
