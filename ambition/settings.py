@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'ambition.apps.EdcVisitTrackingAppConfig',
     'ambition.apps.AmbitionSubjectAppConfig',
     'ambition.apps.EdcSyncAppConfig',
+    'ambition.apps.EdcSyncFilesAppConfig',
 ]
 
 MIDDLEWARE = [
