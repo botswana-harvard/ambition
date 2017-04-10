@@ -22,6 +22,7 @@ from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
 from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
+from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
@@ -85,6 +86,7 @@ class EdcConsentAppConfig(BaseEdcConsentAppConfig):
 
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
+    device_role = 'Central Server'
     device_id = 99
 
 
@@ -135,3 +137,8 @@ class EdcSyncAppConfig(BaseEdcSyncAppConfig):
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
     template_folder = os.path.join(
         settings.STATIC_ROOT, 'ambition', 'label_templates')
+
+
+class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
+    edc_sync_files_using = True
+    role = SERVER
