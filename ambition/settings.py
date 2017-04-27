@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'edc_visit_schedule.apps.AppConfig',
     'ambition.apps.AppConfig',
     'ambition.apps.EdcBaseAppConfig',
+    'ambition.apps.EdcBaseTestAppConfig',
     'ambition.apps.EdcLabAppConfig',
     'ambition.apps.EdcLabelAppConfig',
     'ambition.apps.EdcMetadataAppConfig',
@@ -121,6 +122,7 @@ if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
         "edc_metadata": None,
         "edc_rule_groups": None,
         "edc_registration": None,
+        "edc_sync_files": None,
         "edc_sync": None,
         "ambition_subject": None}
 

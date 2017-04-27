@@ -11,6 +11,7 @@ from django.conf import settings
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.facility import Facility
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
+from edc_base_test.apps import AppConfig as BaseEdcBaseTestAppConfig
 from edc_base.utils import get_utcnow
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig
@@ -41,8 +42,8 @@ class AppConfig(DjangoAppConfig):
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'BHP0XX'
-    protocol_number = '0XX'
+    protocol = 'BHP099'
+    protocol_number = '099'
     protocol_name = 'Ambition'
     protocol_title = ''
     subject_types = [
@@ -58,7 +59,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
 
     @property
     def site_code(self):
-        return 'site_code'
+        return '40'
 
 
 class AmbitionSubjectAppConfig(BaseAmbitionSubjectAppConfig):
@@ -79,6 +80,10 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
 
     def get_navbars(self):
         return navbars
+
+
+class EdcBaseTestAppConfig(BaseEdcBaseTestAppConfig):
+    consent_model = 'ambition_subject.subjectconsent'
 
 
 class EdcConsentAppConfig(BaseEdcConsentAppConfig):
@@ -106,22 +111,24 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
+    app_label = 'ambition_subject'
     default_appt_type = 'home'
     facilities = {
-        'home': Facility(name='home', days=[MO, TU, WE, TH, FR, SA, SU],
-                         slots=[99999, 99999, 99999, 99999, 99999, 99999, 99999])}
+        'clinic': Facility(
+            name='clinic', days=[MO, TU, WE, TH, FR, SA, SU],
+            slots=[99999, 99999, 99999, 99999, 99999, 99999, 99999])}
 
 
 class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
     timepoints = [
         Timepoint(
-            model='edc_appointment.appointment',
+            model='ambition_subject.appointment',
             datetime_field='appt_datetime',
             status_field='appt_status',
             closed_status='DONE'
         ),
         Timepoint(
-            model='edc_appointment.historicalappointment',
+            model='ambition_subject.historicalappointment',
             datetime_field='appt_datetime',
             status_field='appt_status',
             closed_status='DONE'

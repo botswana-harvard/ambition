@@ -23,17 +23,13 @@
     {{ block.super }}
 
 <div class="container bg-3 text-center">
+		<h3>
+			<a href="{% url 'ambition_subject_admin:ambition_subject_subjectscreening_add' %}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-folder-open"></span> Subject Screening </a>
+		</h3>
 	<h3 class="text text-muted">Subjects</h3>
 		<h3>
 			<a href="{% url 'ambition_subject:listboard_url' %}" class="btn btn-default btn-lg"><i class="fa fa-user-circle-o fa-lg"></i> Subjects</a>
-		</h3>
-	<h3 class="text text-muted">Forms</h3>
-		<h3>
-		<!-- to use non harded link -->
-			<a href="/admin/ambition_subject/" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-folder-open"></span> Forms </a>
-		</h3>
-
-
+		</h3>	
 </div>
 <div class="container bg-3 text-center">
 <h3 class="text text-muted">Transfer data to the server...</h3>
