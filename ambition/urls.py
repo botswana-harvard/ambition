@@ -10,6 +10,7 @@ from edc_sync.admin import edc_sync_admin
 from edc_identifier.admin_site import edc_identifier_admin
 
 from ambition_subject.admin_site import ambition_subject_admin
+from ambition_screening.admin_site import ambition_screening_admin
 
 from .views import HomeView, AdministrationView
 
@@ -17,6 +18,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^admin/', edc_appointment_admin.urls),
     url(r'^admin/', ambition_subject_admin.urls),
+    url(r'^admin', ambition_screening_admin.urls),
     url(r'^admin/', edc_lab_admin.urls),
     url(r'^admin/', edc_identifier_admin.urls),
     url(r'^admin/', edc_metadata_admin.urls),
@@ -25,6 +27,7 @@ urlpatterns = [
     url(r'^admininistration/', AdministrationView.as_view(),
         name='administration_url'),
     url('subject/', include('ambition_subject.urls')),
+    url('screening/', include('ambition_screening.urls', namespace='ambition_screening')),
     url(r'^appointment/',
         include('edc_appointment.urls')),
     url(r'^edc/', include('edc_base.urls')),

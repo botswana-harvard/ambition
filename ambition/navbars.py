@@ -5,6 +5,7 @@ navbars = {}
 navbar_items = []
 config = [
     ('ambition_subject', 'subjects', 'fa-user-circle-o', 'listboard_url_name'),
+    ('ambition_screening', 'Screening', 'fa-user-circle-o', 'listboard_url_name'),
     ('edc_lab', None, 'fa-flask', 'home_url_name')
 ]
 for app_config_name, label, fa_icon, app_config_attr in config:

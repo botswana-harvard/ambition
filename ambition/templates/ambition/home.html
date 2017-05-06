@@ -24,7 +24,11 @@
 
 <div class="container bg-3 text-center">
 		<h3>
-			<a href="{% url 'ambition_subject_admin:ambition_subject_subjectscreening_add' %}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-folder-open"></span> Subject Screening </a>
+			<a href="{% url 'ambition_screening:ambition_screening_admin:ambition_screening_subjectscreening_add' %}?next={% url 'ambition_screening:listboard_url' %}" class="btn btn-default btn-lg"><span class="glyphicon glyphicon-folder-open"></span> Subject Screening </a>
+		</h3>
+	<h3 class="text text-muted">Screening</h3>
+		<h3>
+			<a href="{% url 'ambition_screening:listboard_url' %}" class="btn btn-default btn-lg"><i class="fa fa-user-circle-o fa-lg"></i> Screening</a>
 		</h3>
 	<h3 class="text text-muted">Subjects</h3>
 		<h3>
