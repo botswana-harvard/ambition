@@ -26,7 +26,7 @@ SECRET_KEY = 'gnm8w)k(veke&o3@3fs9wtjrwjy7)avz6!ya21(2#qzxbd*4*m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ambition-test.bhp.org.bw']
 
 
 # Application definition
