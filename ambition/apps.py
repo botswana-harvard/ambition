@@ -55,7 +55,7 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
 
     @property
     def site_name(self):
-        return 'site_name'
+        return 'Gaborone'
 
     @property
     def site_code(self):
@@ -70,6 +70,10 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
     base_template_name = 'ambition/base.html'
     requisition_model = 'ambition_subject.subjectrequisition'
     result_model = 'edc_lab.result'
+
+    @property
+    def study_site_name(self):
+        return 'Gaborone'
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
@@ -138,7 +142,7 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
 
 class EdcSyncAppConfig(BaseEdcSyncAppConfig):
     edc_sync_files_using = True
-    role = SERVER
+    role = CENTRAL_SERVER
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
@@ -148,4 +152,4 @@ class EdcLabelAppConfig(BaseEdcLabelAppConfig):
 
 class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
     edc_sync_files_using = True
-    role = SERVER
+    role = CENTRAL_SERVER
