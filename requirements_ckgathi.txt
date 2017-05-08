@@ -1,3 +1,4 @@
+-e /Users/ckgathi/source/ambition-screening
 -e /Users/ckgathi/source/ambition-subject
 -e /Users/ckgathi/source/edc-appointment
 -e /Users/ckgathi/source/edc-base

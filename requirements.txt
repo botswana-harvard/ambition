@@ -22,3 +22,4 @@ git+https://github.com/botswana-harvard/getresults-identifier.git@develop#egg=ge
 git+https://github.com/erikvw/django-crypto-fields.git@develop#egg=django_crypto_fields
 git+https://github.com/erikvw/django-revision.git@develop#egg=django_revision
 git+https://github.com/botswana-harvard/ambition_subject.git@develop#egg=ambition_subject
+git+https://github.com/botswana-harvard/ambition-screening.git@develop#egg=ambition_screening
