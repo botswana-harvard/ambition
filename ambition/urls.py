@@ -26,7 +26,7 @@ urlpatterns = [
     url(r'^admin/', edc_sync_admin.urls),
     url(r'^admininistration/', AdministrationView.as_view(),
         name='administration_url'),
-    url('subject/', include('ambition_subject.urls')),
+    url('subject/', include('ambition_subject.urls', namespace='ambition_subject')),
     url('screening/', include('ambition_screening.urls', namespace='ambition_screening')),
     url(r'^appointment/',
         include('edc_appointment.urls')),
