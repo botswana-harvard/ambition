@@ -11,7 +11,6 @@ from django.conf import settings
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.facility import Facility
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
-from edc_base_test.apps import AppConfig as BaseEdcBaseTestAppConfig
 from edc_base.utils import get_utcnow
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig
@@ -84,10 +83,6 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
 
     def get_navbars(self):
         return navbars
-
-
-class EdcBaseTestAppConfig(BaseEdcBaseTestAppConfig):
-    consent_model = 'ambition_subject.subjectconsent'
 
 
 class EdcConsentAppConfig(BaseEdcConsentAppConfig):
