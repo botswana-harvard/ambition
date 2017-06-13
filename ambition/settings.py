@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'ambition.apps.EdcSyncAppConfig',
     'ambition.apps.EdcSyncFilesAppConfig',
     'ambition_screening.apps.AppConfig',
+    'ambition_subject_validations.apps.AppConfig'
 ]
 
 MIDDLEWARE = [
