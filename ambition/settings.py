@@ -29,7 +29,7 @@ SECRET_KEY = 'gnm8w)k(veke&o3@3fs9wtjrwjy7)avz6!ya21(2#qzxbd*4*m'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['ambition-test.bhp.org.bw']
+ALLOWED_HOSTS = ['ambition-test.bhp.org.bw', 'localhost']
 
 
 # Application definition
@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'edc_lab_dashboard.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_visit_schedule.apps.AppConfig',
+    'edc_base_test.apps.AppConfig',
     'ambition.apps.AppConfig',
     'ambition.apps.EdcBaseAppConfig',
     'ambition.apps.EdcLabAppConfig',
