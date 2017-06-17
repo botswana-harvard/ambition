@@ -111,21 +111,28 @@ WSGI_APPLICATION = 'ambition.wsgi.application'
 #     }
 # }
 
+with open(os.path.join(ETC_DIR, 'mysql.conf')):
+    pass
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ambition',
         'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'ambition', 'mysql.conf'),
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
         },
     },
 }
 
 
-if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
+if 'test' in sys.argv:
+
     MIGRATION_MODULES = {
+        "ambition_screening": None,
+        "ambition_subject": None,
         "django_crypto_fields": None,
-        "edc_call_manager": None,
         "edc_appointment": None,
+        "edc_call_manager": None,
         "edc_call_manager": None,
         "edc_consent": None,
         "edc_death_report": None,
@@ -133,13 +140,11 @@ if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
         "edc_identifier": None,
         "edc_lab": None,
         "edc_metadata": None,
-        "edc_rule_groups": None,
         "edc_registration": None,
-        "edc_sync_files": None,
+        "edc_rule_groups": None,
         "edc_sync": None,
-        "ambition_subject": None}
+        "edc_sync_files": None}
 
-if 'test' in sys.argv:
     PASSWORD_HASHERS = ('django_plainpasswordhasher.PlainPasswordHasher', )
     DEFAULT_FILE_STORAGE = 'inmemorystorage.InMemoryStorage'
 
@@ -204,3 +209,4 @@ REST_FRAMEWORK = {
 
 LABEL_PRINTER = 'label_printer'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+EDC_LAB_REQUISITION_MODEL = 'ambition_subject.SubjectRequisition'
