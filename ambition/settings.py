@@ -9,11 +9,16 @@ https://docs.djangoproject.com/en/1.10/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.10/ref/settings/
 """
-
+import configparser
 import os
 import sys
 
 from pathlib import PurePath
+
+from django.core.management.color import color_style
+style = color_style()
+
+APP_NAME = 'ambition'
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -23,8 +28,15 @@ ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
 
+CONFIG_FILE = f'{APP_NAME}.conf'
+CONFIG_PATH = os.path.join(ETC_DIR, APP_NAME, CONFIG_FILE)
+
+sys.stdout.write(style.SUCCESS('Reading config from {CONFIG_PATH}\n'))
+
+config = configparser.RawConfigParser()
+config.read(os.path.join(CONFIG_PATH))
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'gnm8w)k(veke&o3@3fs9wtjrwjy7)avz6!ya21(2#qzxbd*4*m'
+SECRET_KEY = config['django'].get('secret_key', 'blah$blah$blah')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -101,7 +113,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'ambition.wsgi.application'
+WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
 
 
 # Database
@@ -118,7 +130,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'ambition', 'mysql.conf'),
+            'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
         },
     },
 }
@@ -186,15 +198,21 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
-STATIC_ROOT = os.path.join(BASE_DIR, 'ambition', 'static')
+STATIC_ROOT = config['django'].get(
+    'static_root', os.path.join(BASE_DIR, APP_NAME, 'static'))
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
+MEDIA_ROOT = config['django'].get(
+    'media_root', os.path.join(BASE_DIR, 'media'))
+MEDIA_URL = '/media/'
 
-DEVICE_ID = '99'
 
-# CRISPY_TEMPLATE_PACK = 'bootstrap3'
+KEY_PATH = config['django_crypto_fields'].get('key_path')
+DEVICE_ID = config['edc_device'].get('device_id', '99')
+DEVICE_ROLE = config['edc_device'].get('role', 'CentralServer')
+LABEL_PRINTER = config['edc_label'].get('label_printer', 'label_printer')
+
+EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 
 CORS_ORIGIN_ALLOW_ALL = True
 
@@ -205,5 +223,4 @@ REST_FRAMEWORK = {
     ),
 }
 
-LABEL_PRINTER = 'label_printer'
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
