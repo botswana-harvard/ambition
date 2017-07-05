@@ -23,7 +23,8 @@ APP_NAME = 'ambition'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
+ETC_DIR = '/etc'
+# ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -31,7 +32,7 @@ ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
 CONFIG_FILE = f'{APP_NAME}.conf'
 CONFIG_PATH = os.path.join(ETC_DIR, APP_NAME, CONFIG_FILE)
 
-sys.stdout.write(style.SUCCESS('Reading config from {CONFIG_PATH}\n'))
+sys.stdout.write(style.SUCCESS(f'Reading config from {CONFIG_PATH}\n'))
 
 config = configparser.RawConfigParser()
 config.read(os.path.join(CONFIG_PATH))
@@ -119,21 +120,21 @@ WSGI_APPLICATION = f'{APP_NAME}.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
-        },
-    },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'OPTIONS': {
+#             'read_default_file': os.path.join(ETC_DIR, f'{APP_NAME}', 'mysql.conf'),
+#         },
+#     },
+# }
 
 
 if 'test' in sys.argv and 'mysql' not in DATABASES.get('default').get('ENGINE'):
