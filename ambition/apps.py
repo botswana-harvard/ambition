@@ -71,7 +71,7 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
     result_model = 'edc_lab.result'
 
     @property
-    def site_name(self):
+    def study_site_name(self):
         return 'Gaborone'
 
     @property
