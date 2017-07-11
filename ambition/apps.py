@@ -15,7 +15,7 @@ from edc_base.utils import get_utcnow
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
-from edc_device.constants import CENTRAL_SERVER, SERVER
+from edc_device.constants import CENTRAL_SERVER
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
@@ -71,8 +71,12 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
     result_model = 'edc_lab.result'
 
     @property
-    def study_site_name(self):
+    def site_name(self):
         return 'Gaborone'
+
+    @property
+    def site_code(self):
+        return '40'
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
@@ -91,7 +95,7 @@ class EdcConsentAppConfig(BaseEdcConsentAppConfig):
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
     device_role = CENTRAL_SERVER
-    device_id = 99
+    device_id = '99'
 
 
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
