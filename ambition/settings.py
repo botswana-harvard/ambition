@@ -23,8 +23,7 @@ APP_NAME = 'ambition'
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-ETC_DIR = '/etc'
-# ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
+ETC_DIR = os.path.join(str(PurePath(BASE_DIR).parent), 'etc')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.10/howto/deployment/checklist/
@@ -185,7 +184,13 @@ LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
     ('tn', 'Setswana'),
-    ('en', 'English'))
+    ('en', 'English'),
+    ('ny', 'Chichewa'),
+    ('xh', 'isiXhosa'),
+    ('af', 'Afrikaans'),
+    ('lg', 'Luganda'),
+    ('rny', 'Runyankore'),
+    ('sn', 'Shona'))
 
 
 TIME_ZONE = 'Africa/Gaborone'
