@@ -41,8 +41,8 @@ class AppConfig(DjangoAppConfig):
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'BHP099'
-    protocol_number = '099'
+    protocol = 'BHP092'
+    protocol_number = '092'
     protocol_name = 'Ambition'
     protocol_title = ''
     subject_types = [
@@ -71,7 +71,7 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
     result_model = 'edc_lab.result'
 
     @property
-    def site_name(self):
+    def study_site_name(self):
         return 'Gaborone'
 
     @property
@@ -104,7 +104,7 @@ class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
 
 
 class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
-    identifier_prefix = '099'
+    identifier_prefix = '092'
 
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
