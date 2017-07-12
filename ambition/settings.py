@@ -183,13 +183,13 @@ AUTH_PASSWORD_VALIDATORS = [
 LANGUAGE_CODE = 'en-us'
 
 LANGUAGES = (
-    ('tn', 'Setswana'),
-    ('en', 'English'),
-    ('ny', 'Chichewa'),
-    ('xh', 'isiXhosa'),
     ('af', 'Afrikaans'),
+    ('ny', 'Chichewa'),
+    ('en', 'English'),
+    ('xh', 'isiXhosa'),
     ('lg', 'Luganda'),
     ('rny', 'Runyankore'),
+    ('tn', 'Setswana'),
     ('sn', 'Shona'))
 
 
