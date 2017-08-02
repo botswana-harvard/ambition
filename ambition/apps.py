@@ -18,6 +18,7 @@ from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
+from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
@@ -38,6 +39,8 @@ style = color_style()
 class AppConfig(DjangoAppConfig):
     name = 'ambition'
     base_template_name = 'ambition/base.html'
+    dashboard_url_name = 'home_url'
+    listboard_url_name = 'home_url'
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
@@ -63,6 +66,10 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
 
 class AmbitionSubjectAppConfig(BaseAmbitionSubjectAppConfig):
     base_template_name = 'ambition/base.html'
+
+
+class EdcLabDashboardAppConfig(BaseEdcLabDashboardAppConfig):
+    base_template_name = 'bcpp/base.html'
 
 
 class EdcLabAppConfig(BaseEdcLabAppConfig):
