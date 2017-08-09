@@ -18,6 +18,7 @@ from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
+from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
@@ -38,11 +39,13 @@ style = color_style()
 class AppConfig(DjangoAppConfig):
     name = 'ambition'
     base_template_name = 'ambition/base.html'
+    dashboard_url_name = 'home_url'
+    listboard_url_name = 'home_url'
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
-    protocol = 'BHP099'
-    protocol_number = '099'
+    protocol = 'BHP092'
+    protocol_number = '092'
     protocol_name = 'Ambition'
     protocol_title = ''
     subject_types = [
@@ -65,6 +68,10 @@ class AmbitionSubjectAppConfig(BaseAmbitionSubjectAppConfig):
     base_template_name = 'ambition/base.html'
 
 
+class EdcLabDashboardAppConfig(BaseEdcLabDashboardAppConfig):
+    base_template_name = 'bcpp/base.html'
+
+
 class EdcLabAppConfig(BaseEdcLabAppConfig):
     base_template_name = 'ambition/base.html'
     requisition_model = 'ambition_subject.subjectrequisition'
@@ -73,6 +80,10 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
     @property
     def study_site_name(self):
         return 'Gaborone'
+
+    @property
+    def site_code(self):
+        return '40'
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
@@ -91,7 +102,7 @@ class EdcConsentAppConfig(BaseEdcConsentAppConfig):
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
     device_role = CENTRAL_SERVER
-    device_id = 99
+    device_id = '99'
 
 
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
@@ -100,7 +111,7 @@ class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
 
 
 class EdcIdentifierAppConfig(BaseEdcIdentifierAppConfig):
-    identifier_prefix = '099'
+    identifier_prefix = '092'
 
 
 class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
