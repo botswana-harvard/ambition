@@ -10,6 +10,7 @@ from edc_dashboard.view_mixins import AppConfigViewMixin
 class AdministrationView(EdcBaseViewMixin, AppConfigViewMixin, TemplateView):
 
     template_name = 'ambition/administration.html'
+    app_config_name = 'ambition'
 
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):

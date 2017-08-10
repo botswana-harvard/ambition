@@ -1,11 +1,11 @@
-from edc_base.navbar_item import NavbarItem
+from edc_base import NavbarItem
 from edc_lab_dashboard.navbars import navbar_items as edc_lab_navbar_items
 
 navbars = {}
 navbar_items = []
 config = [
-    ('ambition_subject', 'subjects', 'fa-user-circle-o', 'listboard_url_name'),
-    ('ambition_screening', 'Screening',
+    ('ambition_dashboard', 'Subjects', 'fa-user-circle-o', 'listboard_url_name'),
+    ('ambition_dashboard', 'Screening',
      'fa-user-circle-o', 'listboard_url_name'),
     ('edc_lab_dashboard', None, 'fa-flask', 'home_url_name')
 ]

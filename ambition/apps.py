@@ -91,9 +91,7 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     institution = 'Botswana-Harvard AIDS Institute'
     copyright = '2017-{}'.format(get_utcnow().year)
     license = None
-
-    def get_navbars(self):
-        return navbars
+    navbars = navbars
 
 
 class EdcConsentAppConfig(BaseEdcConsentAppConfig):

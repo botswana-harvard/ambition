@@ -40,25 +40,18 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
+    'crispy_forms',
+    'tz_detect',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_js_reverse',
     'edc_sync.apps.AppConfig',
+    'edc_dashboard.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
-    'ambition_subject.apps.EdcBaseAppConfig',
-    'ambition_subject.apps.EdcBaseTestAppConfig',
-    'ambition_subject.apps.EdcLabAppConfig',
-    'ambition_subject.apps.EdcLabelAppConfig',
-    'ambition_subject.apps.EdcMetadataAppConfig',
-    'ambition_subject.apps.EdcIdentifierAppConfig',
-    'ambition_subject.apps.EdcProtocolAppConfig',
-    'ambition_subject.apps.EdcConsentAppConfig',
-    'ambition_subject.apps.EdcDeviceAppConfig',
-    'ambition_subject.apps.EdcTimepointAppConfig',
-    'ambition_subject.apps.EdcAppointmentAppConfig',
-    'ambition_subject.apps.EdcVisitTrackingAppConfig',
     'ambition_subject.apps.AppConfig',
     'ambition_validators.apps.AppConfig',
     'ambition_dashboard.apps.AppConfig',
@@ -66,6 +59,18 @@ INSTALLED_APPS = [
     'ambition_reference.apps.AppConfig',
     'ambition_metadata_rules.apps.AppConfig',
     'ambition_visit_schedule.apps.AppConfig',
+    'ambition.apps.EdcBaseAppConfig',
+    'ambition.apps.EdcLabAppConfig',
+    'ambition.apps.EdcLabelAppConfig',
+    'ambition.apps.EdcMetadataAppConfig',
+    'ambition.apps.EdcIdentifierAppConfig',
+    'ambition.apps.EdcProtocolAppConfig',
+    'ambition.apps.EdcConsentAppConfig',
+    'ambition.apps.EdcDeviceAppConfig',
+    'ambition.apps.EdcTimepointAppConfig',
+    'ambition.apps.EdcAppointmentAppConfig',
+    'ambition.apps.EdcVisitTrackingAppConfig',
+    'ambition.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -102,11 +107,20 @@ WSGI_APPLICATION = 'ambition.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(BASE_DIR, 'etc', 'mysql.conf'),
+        },
+    },
 }
 
 
@@ -150,6 +164,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'ambition', 'static')
 KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 GIT_DIR = BASE_DIR
+
+EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 if 'test' in sys.argv:
 
