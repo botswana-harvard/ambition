@@ -40,35 +40,36 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
+    'django_js_reverse',
     'crispy_forms',
     'tz_detect',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
-    'django_js_reverse',
-    'edc_sync.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
+    'edc_lab_dashboard.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_registration.apps.AppConfig',
-    'edc_lab_dashboard.apps.AppConfig',
+    'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
-    'ambition_subject.apps.AppConfig',
-    'ambition_validators.apps.AppConfig',
     'ambition_dashboard.apps.AppConfig',
     'ambition_labs.apps.AppConfig',
-    'ambition_reference.apps.AppConfig',
     'ambition_metadata_rules.apps.AppConfig',
+    'ambition_rando.apps.AppConfig',
+    'ambition_reference.apps.AppConfig',
+    'ambition_subject.apps.AppConfig',
+    'ambition_validators.apps.AppConfig',
     'ambition_visit_schedule.apps.AppConfig',
+    'ambition.apps.EdcAppointmentAppConfig',
     'ambition.apps.EdcBaseAppConfig',
+    'ambition.apps.EdcConsentAppConfig',
+    'ambition.apps.EdcDeviceAppConfig',
+    'ambition.apps.EdcIdentifierAppConfig',
     'ambition.apps.EdcLabAppConfig',
     'ambition.apps.EdcLabelAppConfig',
     'ambition.apps.EdcMetadataAppConfig',
-    'ambition.apps.EdcIdentifierAppConfig',
     'ambition.apps.EdcProtocolAppConfig',
-    'ambition.apps.EdcConsentAppConfig',
-    'ambition.apps.EdcDeviceAppConfig',
     'ambition.apps.EdcTimepointAppConfig',
-    'ambition.apps.EdcAppointmentAppConfig',
     'ambition.apps.EdcVisitTrackingAppConfig',
     'ambition.apps.AppConfig',
 ]
@@ -147,6 +148,16 @@ AUTH_PASSWORD_VALIDATORS = [
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
+
+LANGUAGES = (
+    ('af', 'Afrikaans'),
+    ('ny', 'Chichewa'),
+    ('en', 'English'),
+    ('xh', 'isiXhosa'),
+    ('lg', 'Luganda'),
+    ('rny', 'Runyankore'),
+    ('tn', 'Setswana'),
+    ('sn', 'Shona'))
 
 TIME_ZONE = 'UTC'
 
