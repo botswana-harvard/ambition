@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'django_js_reverse',
     'edc_sync.apps.AppConfig',
+    'edc_dashboard.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
