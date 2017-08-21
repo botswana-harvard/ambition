@@ -183,6 +183,7 @@ CRISPY_TEMPLATE_PACK = 'bootstrap3'
 if 'test' in sys.argv:
 
     class DisableMigrations:
+
         def __contains__(self, item):
             return True
 
