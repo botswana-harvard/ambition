@@ -69,7 +69,7 @@ class AmbitionSubjectAppConfig(BaseAmbitionSubjectAppConfig):
 
 
 class EdcLabDashboardAppConfig(BaseEdcLabDashboardAppConfig):
-    base_template_name = 'bcpp/base.html'
+    base_template_name = 'ambition/base.html'
 
 
 class EdcLabAppConfig(BaseEdcLabAppConfig):
