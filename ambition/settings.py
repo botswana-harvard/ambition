@@ -26,6 +26,10 @@ SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+CONFIG_FILE = '{}.conf'.format(APP_NAME)
+
+ETC_DIR = '/etc'
+
 ALLOWED_HOSTS = []
 
 
