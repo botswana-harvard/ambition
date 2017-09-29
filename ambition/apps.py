@@ -105,8 +105,8 @@ class EdcConsentAppConfig(BaseEdcConsentAppConfig):
 
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
-    device_role = CLIENT
-    device_id = '71'
+    device_role = CENTRAL_SERVER
+    device_id = '99'
 
 
 class EdcVisitTrackingAppConfig(BaseEdcVisitTrackingAppConfig):
@@ -152,7 +152,7 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
 
 class EdcSyncAppConfig(BaseEdcSyncAppConfig):
     edc_sync_files_using = True
-    role = CLIENT
+    role = CENTRAL_SERVER
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
