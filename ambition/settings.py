@@ -13,9 +13,18 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import sys
 
+from django.core.management.color import color_style
+
+from .logging import LOGGING
+
+style = color_style()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP_NAME = 'ambition'
+
+logging_handler = LOGGING.get('handlers').get('file').get('filename')
+sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
