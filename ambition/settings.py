@@ -64,8 +64,6 @@ INSTALLED_APPS = [
     'edc_reference.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
-    'edc_sync.apps.AppConfig',
-    'edc_sync_files.apps.AppConfig',
     'ambition_dashboard.apps.AppConfig',
     'ambition_labs.apps.AppConfig',
     'ambition_metadata_rules.apps.AppConfig',
@@ -85,6 +83,8 @@ INSTALLED_APPS = [
     'ambition.apps.EdcProtocolAppConfig',
     'ambition.apps.EdcTimepointAppConfig',
     'ambition.apps.EdcVisitTrackingAppConfig',
+    'bcpp.apps.EdcSyncAppConfig',
+    'bcpp.apps.EdcSyncFilesAppConfig',
     'ambition.apps.AppConfig',
 ]
 
