@@ -36,3 +36,5 @@ git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_v
 git+https://github.com/botswana-harvard/getresults-identifier.git@develop#egg=getresults_identifier
 git+https://github.com/erikvw/django-crypto-fields.git@develop#egg=django_crypto_fields
 git+https://github.com/erikvw/django-revision.git@develop#egg=django_revision
+git+https://github.com/botswana-harvard/edc-pharma.git@develop#egg=edc_pharma
+git+https://github.com/botswana-harvard/edc-pharma-dashboard.git@develop#egg=edc_pharma_dashboard
