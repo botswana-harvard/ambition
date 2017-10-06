@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'edc_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
+    'edc_pharma.apps.AppConfig',
+    'edc_pharma_dashboard.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
@@ -178,6 +180,9 @@ KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 GIT_DIR = BASE_DIR
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
+LABEL_PRINTER = 'test_label_printer_ambition'
+EDC_PHARMA_DISPENSE_MODEL = 'ambition_rando.subjectrandomization'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 if 'test' in sys.argv:
