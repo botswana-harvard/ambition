@@ -10,9 +10,13 @@ from django.contrib import admin
 
 from ambition_subject.admin_site import ambition_subject_admin
 from edc_identifier.admin_site import edc_identifier_admin
+from edc_identifier.admin_site import edc_identifier_admin
 from edc_lab.admin_site import edc_lab_admin
 from edc_registration.admin_site import edc_registration_admin
+from edc_registration.admin_site import edc_registration_admin
 from edc_sync.admin import edc_sync_admin
+from edc_sync.admin import edc_sync_admin
+from edc_sync_files.admin_site import edc_sync_files_admin
 
 from .views import HomeView, AdministrationView
 
@@ -29,6 +33,7 @@ urlpatterns = [
     url(r'^admin/', edc_sync_admin.urls),
     url(r'^admin/', ambition_rando_admin.urls),
     url(r'^admin/', edc_pharma_admin.urls),
+    url(r'^admin/edc_sync_files/', edc_sync_files_admin.urls),
     url(r'^admininistration/', AdministrationView.as_view(),
         name='administration_url'),
     url(r'^ambition_subject/', include('ambition_subject.urls')),
@@ -48,6 +53,7 @@ urlpatterns = [
     url(r'^edc_reference/', include('edc_reference.urls')),
     url(r'^edc_registration/', include('edc_registration.urls')),
     url(r'^edc_sync/', include('edc_sync.urls')),
+    url(r'^edc_sync_files/', include('edc_sync_files.urls')),
     url(r'^edc_visit_schedule/', include('edc_visit_schedule.urls')),
     url(r'^tz_detect/', include('tz_detect.urls')),
     url(r'login', LoginView.as_view(), name='login_url'),

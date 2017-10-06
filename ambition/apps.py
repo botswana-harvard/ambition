@@ -1,3 +1,4 @@
+import configparser
 from datetime import datetime
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_appointment.facility import Facility
@@ -6,7 +7,7 @@ from edc_base.utils import get_utcnow
 from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
-from edc_device.constants import CENTRAL_SERVER
+from edc_device.constants import CENTRAL_SERVER, CLIENT
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
@@ -20,7 +21,10 @@ from django.core.management.color import color_style
 
 from ambition_subject.apps import AppConfig as BaseAmbitionSubjectAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
+from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
+from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
+from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
 from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
@@ -33,6 +37,11 @@ from .navbars import navbars
 
 
 style = color_style()
+
+config = configparser.RawConfigParser()
+config.read(os.path.join(settings.ETC_DIR,
+                         settings.APP_NAME,
+                         settings.CONFIG_FILE))
 
 
 class AppConfig(DjangoAppConfig):
@@ -119,7 +128,7 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     app_label = 'ambition_subject'
-    default_appt_type = 'home'
+    default_appt_type = 'hospital'
     facilities = {
         'clinic': Facility(
             name='clinic', days=[MO, TU, WE, TH, FR, SA, SU],
@@ -155,4 +164,5 @@ class EdcLabelAppConfig(BaseEdcLabelAppConfig):
 
 class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
     edc_sync_files_using = True
-    role = CENTRAL_SERVER
+    remote_host = config['edc_sync_files'].get('remote_host')
+    user = config['edc_sync_files'].get('sync_user')
