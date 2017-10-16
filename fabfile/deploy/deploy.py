@@ -117,7 +117,8 @@ def deploy(requirements_list=None, conf_filename=None, bootstrap_path=None, rele
                 env.etc_dir,
                 use_sudo=True)
 
-    # copy bcpp.conf into etc/{project_app_name}/
+
+    # copy ambition.conf into etc/{project_app_name}/
     put_project_conf()
     update_ambition_conf
 
