@@ -13,9 +13,18 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 import os
 import sys
 
+from django.core.management.color import color_style
+
+from .logging import LOGGING
+
+style = color_style()
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 APP_NAME = 'ambition'
+
+logging_handler = LOGGING.get('handlers').get('file').get('filename')
+sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -25,6 +34,10 @@ SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+
+CONFIG_FILE = '{}.conf'.format(APP_NAME)
+
+ETC_DIR = '/etc'
 
 ALLOWED_HOSTS = []
 
@@ -49,11 +62,11 @@ INSTALLED_APPS = [
     'edc_dashboard.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
+    'edc_pharma.apps.AppConfig',
+    'edc_pharma_dashboard.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
-    'edc_sync.apps.AppConfig',
-    'edc_sync_files.apps.AppConfig',
     'ambition_dashboard.apps.AppConfig',
     'ambition_labs.apps.AppConfig',
     'ambition_metadata_rules.apps.AppConfig',
@@ -73,6 +86,8 @@ INSTALLED_APPS = [
     'ambition.apps.EdcProtocolAppConfig',
     'ambition.apps.EdcTimepointAppConfig',
     'ambition.apps.EdcVisitTrackingAppConfig',
+    'ambition.apps.EdcSyncAppConfig',
+    'ambition.apps.EdcSyncFilesAppConfig',
     'ambition.apps.AppConfig',
 ]
 
@@ -179,6 +194,9 @@ KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 GIT_DIR = BASE_DIR
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
+LABEL_PRINTER = 'test_label_printer_ambition'
+EDC_PHARMA_DISPENSE_MODEL = 'ambition_rando.subjectrandomization'
+
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 if 'test' in sys.argv:
