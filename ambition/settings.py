@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'edc_dashboard.apps.AppConfig',
+    'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
     'edc_pharma.apps.AppConfig',
     'edc_pharma_dashboard.apps.AppConfig',

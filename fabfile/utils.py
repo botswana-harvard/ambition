@@ -28,7 +28,8 @@ def validate(release=None, pull=None):
         warn(yellow(f'{env.host}: {result}'))
     else:
         result = run('workon ambition && python --version', warn_only=True)
-        if result != 'Python 3.6.1':
+
+        if result != 'Python 3.6.2':
             warn(yellow(f'{env.host}: {result}'))
         else:
             with cd('~/source/ambition'):

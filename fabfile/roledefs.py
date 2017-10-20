@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+def get_test():
+    hosts = 'bcpp077'
+=======
 def get_bokaa():
     hosts = ['bcpp0{}'.format(i + 25) for i in range(0, 15)]
     hosts.pop(hosts.index('bcpp026'))
@@ -99,11 +103,15 @@ def get_mmadinare():
     hosts.pop(hosts.index('bcpp042'))
     hosts.pop(hosts.index('bcpp050'))
     hosts.pop(hosts.index('bcpp052'))
+>>>>>>> 6ff777bf10c7249c9735529b7f52e66fcbcf250a
     return hosts
 
 
 roledefs = {
     'deployment_hosts': ['localhost'],
+<<<<<<< HEAD
+    'test': get_test(),
+=======
     'mmankgodi': get_mmankgodi(),
     'lentsweletau': get_lentsweletau(),
     'mmathethe': get_mmathethe(),
@@ -117,4 +125,5 @@ roledefs = {
     'shoshong': get_shoshong(),
     'mmadinare': get_mmadinare(),
     'testhosts': ['bcpp075', 'bcpp076', 'bcpp077', 'bcpp078', 'bcpp080', 'bcpp081'],
+>>>>>>> 6ff777bf10c7249c9735529b7f52e66fcbcf250a
 }
