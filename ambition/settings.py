@@ -199,6 +199,8 @@ EDC_PHARMA_DISPENSE_MODEL = 'ambition_rando.subjectrandomization'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
+COUNTRY = 'Botswana'
+
 if 'test' in sys.argv:
 
     class DisableMigrations:

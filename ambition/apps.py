@@ -1,7 +1,7 @@
 import configparser
 from datetime import datetime
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
-from edc_appointment.facility import Facility
+from edc_facility import Facility
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
 from edc_base.utils import get_utcnow
 from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig

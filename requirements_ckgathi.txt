@@ -8,6 +8,7 @@
 -e /Users/django/source/edc-constants
 -e /Users/django/source/edc-dashboard
 -e /Users/django/source/edc-device
+-e /Users/django/source/edc-facility
 -e /Users/django/source/edc-identifier
 -e /Users/django/source/edc-lab
 -e /Users/django/source/edc-lab-dashboard
