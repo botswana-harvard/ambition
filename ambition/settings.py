@@ -195,7 +195,7 @@ GIT_DIR = BASE_DIR
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
-EDC_PHARMA_DISPENSE_MODEL = 'ambition_rando.subjectrandomization'
+EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharma.prescription'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
