@@ -1,5 +1,6 @@
 import configparser
 from datetime import datetime
+from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_facility import Facility
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
@@ -20,6 +21,7 @@ from django.conf import settings
 from django.core.management.color import color_style
 
 from ambition_subject.apps import AppConfig as BaseAmbitionSubjectAppConfig
+from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
@@ -129,6 +131,15 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
     app_label = 'ambition_subject'
     default_appt_type = 'hospital'
+    configurations = [
+        AppointmentConfig(
+            model='ambition_subject.appointment',
+            related_visit_model='ambition_subject.subjectvisit')
+    ]
+
+
+class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
+    country = 'botswana'
     facilities = {
         'clinic': Facility(
             name='clinic', days=[MO, TU, WE, TH, FR, SA, SU],
