@@ -89,6 +89,7 @@ INSTALLED_APPS = [
     'ambition.apps.EdcSyncAppConfig',
     'ambition.apps.EdcSyncFilesAppConfig',
     'ambition.apps.AppConfig',
+    'edc_navbar.apps.AppConfig',
 ]
 
 MIDDLEWARE = [
@@ -196,6 +197,7 @@ GIT_DIR = BASE_DIR
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
 EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharma.prescription'
+DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
