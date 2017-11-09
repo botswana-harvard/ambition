@@ -188,14 +188,12 @@ EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
 EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharma.prescription'
 DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
-EDC_SYNC_SERVER_IP = None
-EDC_SYNC_FILES_USER = None
-EDC_SYNC_FILES_REMOTE_HOST = None
-EDC_SYNC_FILES_USB_VOLUME = None
+
+COUNTRY = 'botswana'
+HOLIDAY_FILE = os.path.join(BASE_DIR, APP_NAME, 'holidays.csv')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-COUNTRY = 'botswana'
 MAIN_NAVBAR_NAME = APP_NAME
 
 EDC_SYNC_SERVER_IP = None
