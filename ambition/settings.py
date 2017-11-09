@@ -1,6 +1,7 @@
 import os
 import sys
 
+from pathlib import Path
 from django.core.management.color import color_style
 
 from .logging import LOGGING
@@ -14,21 +15,23 @@ APP_NAME = 'ambition'
 logging_handler = LOGGING.get('handlers').get('file').get('filename')
 sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+PRODUCTION = False
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
+if PRODUCTION:
+    DEBUG = False
+    ETC_DIR = os.path.join('/etc', APP_NAME)
+    STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
+    SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
+    KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+else:
+    DEBUG = True
+    ETC_DIR = os.path.join(BASE_DIR, 'etc')
+    STATIC_ROOT = os.path.join(BASE_DIR, 'ambition', 'static')
+    SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
+    KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
 
-# CONFIG_FILE = '{}.conf'.format(APP_NAME)
-
-ETC_DIR = '/etc'
-
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ambition-test.bhp.org.bw']
 
 # Application definition
 
@@ -127,7 +130,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': os.path.join(BASE_DIR, 'etc', 'mysql.conf'),
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
         },
     },
 }
@@ -180,15 +183,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'ambition', 'static')
-KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 GIT_DIR = BASE_DIR
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
-EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharma.prescription'
-
-COUNTRY = 'botswana'
+# EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharmacy.prescription'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -201,6 +200,7 @@ EDC_SYNC_FILES_USB_VOLUME = None
 
 DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
+COUNTRY = 'botswana'
 
 if 'test' in sys.argv:
 
