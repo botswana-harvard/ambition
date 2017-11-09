@@ -13,7 +13,7 @@ class HomeView(EdcBaseViewMixin, AppConfigViewMixin,
     app_config_name = 'ambition'
     template_name = 'ambition/home.html'
 
-    navbar_name = 'default'
+    navbar_name = 'ambition'
     navbar_selected_item = 'home'
 
     @method_decorator(login_required)

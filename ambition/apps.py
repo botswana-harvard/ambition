@@ -35,8 +35,6 @@ from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
-from .navbars import navbars
-
 
 style = color_style()
 
@@ -101,7 +99,6 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     institution = 'Botswana-Harvard AIDS Institute'
     copyright = '2017-{}'.format(get_utcnow().year)
     license = None
-    navbars = navbars
 
 
 class EdcConsentAppConfig(BaseEdcConsentAppConfig):
