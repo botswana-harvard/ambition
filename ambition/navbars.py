@@ -5,23 +5,28 @@ ambition = Navbar(name='ambition')
 ambition.append_item(
     NavbarItem(
         name='screened_subject',
-        title='Screening',
-        label='screening',
-        fa_icon='fa-user-circle-o',
+        label='Screening',
+        fa_icon='fa-user-plus',
         url_name='ambition_dashboard:screening_listboard_url'))
 
 ambition.append_item(
     NavbarItem(
         name='consented_subject',
-        title='Subjects',
-        label='subjects',
+        label='Subjects',
         fa_icon='fa-user-circle-o',
         url_name='ambition_dashboard:listboard_url'))
 
 ambition.append_item(
     NavbarItem(
+        name='pharmacy',
+        label='Pharmacy',
+        fa_icon='fa-medkit',
+        url_name=f'edc_pharmacy_dashboard:home_url'))
+
+ambition.append_item(
+    NavbarItem(
         name='lab',
-        label='edc_lab',
+        label='Specimens',
         fa_icon='fa-flask',
         url_name='edc_lab_dashboard:home_url'))
 
