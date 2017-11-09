@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'edc_pharmacy.apps.AppConfig',
     'edc_pharmacy_dashboard.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
-    'edc_facility.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
@@ -191,7 +190,6 @@ EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharma.prescription'
 DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
 
 COUNTRY = 'botswana'
-HOLIDAY_FILE = os.path.join(BASE_DIR, APP_NAME, 'holidays.csv')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
@@ -202,8 +200,8 @@ EDC_SYNC_FILES_REMOTE_HOST = None
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
 
-DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
-HOLIDAY_FILE = os.path.join(BASE_DIR, 'holiday.csv')
+DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 
 if 'test' in sys.argv:
 
