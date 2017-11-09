@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'edc_dashboard.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
+    'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
     'edc_pharmacy.apps.AppConfig',
     'edc_pharmacy_dashboard.apps.AppConfig',
@@ -77,7 +78,6 @@ INSTALLED_APPS = [
     'ambition.apps.EdcProtocolAppConfig',
     'ambition.apps.EdcTimepointAppConfig',
     'ambition.apps.EdcVisitTrackingAppConfig',
-    'ambition.apps.EdcSyncAppConfig',
     'ambition.apps.AppConfig',
 ]
 

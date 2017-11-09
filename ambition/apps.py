@@ -23,8 +23,6 @@ from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
-from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
-from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
 from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
@@ -32,11 +30,6 @@ from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
 
 style = color_style()
-
-# config = configparser.RawConfigParser()
-# config.read(os.path.join(settings.ETC_DIR,
-#                          settings.APP_NAME,
-#                          settings.CONFIG_FILE))
 
 
 class AppConfig(DjangoAppConfig):
@@ -153,11 +146,6 @@ class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
             closed_status='DONE'
         ),
     ]
-
-
-class EdcSyncAppConfig(BaseEdcSyncAppConfig):
-    edc_sync_files_using = True
-    role = CENTRAL_SERVER
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
