@@ -1,5 +1,4 @@
 git+https://github.com/botswana-harvard/ambition-dashboard.git@develop#egg=ambition_dashboard
-git+https://github.com/botswana-harvard/ambition-labs.git@develop#egg=ambition_labs
 git+https://github.com/botswana-harvard/ambition-metadata-rules.git@develop#egg=ambition_metadata_rules
 git+https://github.com/botswana-harvard/ambition-pharmacy.git@develop#egg=ambition_pharmacy
 git+https://github.com/botswana-harvard/ambition-rando.git@develop#egg=ambition_rando
@@ -42,3 +41,6 @@ git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_v
 git+https://github.com/botswana-harvard/getresults-identifier.git@develop#egg=getresults_identifier
 git+https://github.com/erikvw/django-crypto-fields.git@develop#egg=django_crypto_fields
 git+https://github.com/erikvw/django-revision.git@develop#egg=django_revision
+git+https://github.com/erikvw/django-simple-history.git@develop#egg=django_simple_history
+git+https://github.com/erikvw/django-js-reverse.git@develop#egg=django_js_reverse
+
