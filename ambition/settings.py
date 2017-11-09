@@ -201,8 +201,6 @@ EDC_SYNC_FILES_REMOTE_HOST = None
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
 
-DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
-
 if 'test' in sys.argv:
 
     class DisableMigrations:
