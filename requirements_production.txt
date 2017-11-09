@@ -9,6 +9,7 @@ git+https://github.com/botswana-harvard/edc-identifier.git@master#egg=edc_identi
 git+https://github.com/botswana-harvard/edc-lab.git@master#egg=edc_lab
 git+https://github.com/botswana-harvard/edc-label.git@master#egg=edc_label
 git+https://github.com/botswana-harvard/edc-locator.git@master#egg=edc_locator
+git+https://github.com/botswana-harvard/edc-navbar.git@master#egg=edc_navbar
 git+https://github.com/botswana-harvard/edc-metadata.git@master#egg=edc_metadata
 git+https://github.com/botswana-harvard/edc-metadata-rules.git@master#egg=edc_metadata_rules
 git+https://github.com/botswana-harvard/edc-model-wrapper.git@master#egg=edc_model-wrapper
