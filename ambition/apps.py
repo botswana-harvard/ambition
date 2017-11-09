@@ -1,33 +1,28 @@
-import configparser
-from datetime import datetime
-from edc_appointment.appointment_config import AppointmentConfig
-from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
-from edc_facility import Facility
-from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
-from edc_base.utils import get_utcnow
-from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig
-from edc_constants.constants import FAILED_ELIGIBILITY
-from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
-from edc_device.constants import CENTRAL_SERVER, CLIENT
-from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
-from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
-from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
 import os
 
+from ambition_subject.apps import AppConfig as BaseAmbitionSubjectAppConfig
+from datetime import datetime
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
 from django.conf import settings
 from django.core.management.color import color_style
-
-from ambition_subject.apps import AppConfig as BaseAmbitionSubjectAppConfig
+from edc_appointment.appointment_config import AppointmentConfig
+from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
+from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
+from edc_base.utils import get_utcnow
+from edc_consent.apps import AppConfig as BaseEdcConsentAppConfig
+from edc_constants.constants import FAILED_ELIGIBILITY
+from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
+from edc_device.constants import CENTRAL_SERVER
+from edc_facility import Facility
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
-from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
-from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
-from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
+from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
+from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
+from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
 from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
 from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
 from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
@@ -35,15 +30,13 @@ from edc_timepoint.timepoint import Timepoint
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
-from .navbars import navbars
-
 
 style = color_style()
 
-config = configparser.RawConfigParser()
-config.read(os.path.join(settings.ETC_DIR,
-                         settings.APP_NAME,
-                         settings.CONFIG_FILE))
+# config = configparser.RawConfigParser()
+# config.read(os.path.join(settings.ETC_DIR,
+#                          settings.APP_NAME,
+#                          settings.CONFIG_FILE))
 
 
 class AppConfig(DjangoAppConfig):
@@ -100,8 +93,7 @@ class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     project_name = 'Ambition'
     institution = 'Botswana-Harvard AIDS Institute'
     copyright = '2017-{}'.format(get_utcnow().year)
-    license = None
-    navbars = navbars
+    license = 'GNU GENERAL PUBLIC LICENSE Version 3'
 
 
 class EdcConsentAppConfig(BaseEdcConsentAppConfig):
@@ -171,9 +163,3 @@ class EdcSyncAppConfig(BaseEdcSyncAppConfig):
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
     template_folder = os.path.join(
         settings.STATIC_ROOT, 'ambition', 'label_templates')
-
-
-class EdcSyncFilesAppConfig(BaseEdcSyncFilesAppConfig):
-    edc_sync_files_using = True
-    remote_host = config['edc_sync_files'].get('remote_host')
-    user = config['edc_sync_files'].get('sync_user')
