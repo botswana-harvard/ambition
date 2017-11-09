@@ -23,10 +23,7 @@ from django.core.management.color import color_style
 from ambition_subject.apps import AppConfig as BaseAmbitionSubjectAppConfig
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
-from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
-from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
-from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_sync.apps import AppConfig as BaseEdcSyncAppConfig
 from edc_sync_files.apps import AppConfig as BaseEdcSyncFilesAppConfig
