@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'edc_pharmacy.apps.AppConfig',
     'edc_pharmacy_dashboard.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
+    'edc_facility.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
@@ -203,6 +204,7 @@ EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
 
 DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
+HOLIDAY_FILE = os.path.join(BASE_DIR, 'holiday.csv')
 
 if 'test' in sys.argv:
 
