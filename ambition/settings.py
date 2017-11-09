@@ -187,7 +187,6 @@ GIT_DIR = BASE_DIR
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
 EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharma.prescription'
-DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
 
 COUNTRY = 'botswana'
 
