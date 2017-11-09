@@ -2,6 +2,7 @@ git+https://github.com/botswana-harvard/ambition-dashboard.git@develop#egg=ambit
 git+https://github.com/botswana-harvard/ambition-metadata-rules.git@develop#egg=ambition_metadata_rules
 git+https://github.com/botswana-harvard/ambition-pharmacy.git@develop#egg=ambition_pharmacy
 git+https://github.com/botswana-harvard/ambition-rando.git@develop#egg=ambition_rando
+git+https://github.com/botswana-harvard/ambition-labs.git@develop#egg=ambition_labs
 git+https://github.com/botswana-harvard/ambition-reference.git@develop#egg=ambition_reference
 git+https://github.com/botswana-harvard/ambition_subject.git@develop#egg=ambition_subject
 git+https://github.com/botswana-harvard/ambition-screening.git@develop#egg=ambition_screening
