@@ -1,6 +1,7 @@
 import os
 import sys
 
+from pathlib import Path
 from django.core.management.color import color_style
 
 from .logging import LOGGING
@@ -14,14 +15,13 @@ APP_NAME = 'ambition'
 logging_handler = LOGGING.get('handlers').get('file').get('filename')
 sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
 
+DEBUG = False
+ETC_DIR = os.path.join('/etc', APP_NAME)
 
-DEBUG = True
-
-ETC_DIR = os.path.join(BASE_DIR, 'etc')
-
+# move to a file in /etc
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ambition-test.bhp.org.bw']
 
 # Application definition
 
@@ -173,9 +173,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'ambition', 'static')
+STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
 GIT_DIR = BASE_DIR
-KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
