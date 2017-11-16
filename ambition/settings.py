@@ -51,8 +51,10 @@ INSTALLED_APPS = [
     'edc_pharmacy_dashboard.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_reference.apps.AppConfig',
+    'edc_consent.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
     'ambition_dashboard.apps.AppConfig',
     'ambition_labs.apps.AppConfig',
     'ambition_metadata_rules.apps.AppConfig',
@@ -63,14 +65,12 @@ INSTALLED_APPS = [
     'ambition_visit_schedule.apps.AppConfig',
     'ambition.apps.EdcAppointmentAppConfig',
     'ambition.apps.EdcBaseAppConfig',
-    'ambition.apps.EdcConsentAppConfig',
     'ambition.apps.EdcDeviceAppConfig',
     'ambition.apps.EdcIdentifierAppConfig',
     'ambition.apps.EdcLabAppConfig',
     'ambition.apps.EdcLabelAppConfig',
     'ambition.apps.EdcMetadataAppConfig',
     'ambition.apps.EdcProtocolAppConfig',
-    'ambition.apps.EdcTimepointAppConfig',
     'ambition.apps.EdcVisitTrackingAppConfig',
     'ambition.apps.AppConfig',
 ]
@@ -190,7 +190,7 @@ EDC_SYNC_FILES_REMOTE_HOST = None
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
 
-DEFAULT_APPOINTMENT_MODEL = 'ambition_subject.appointment'
+DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
 

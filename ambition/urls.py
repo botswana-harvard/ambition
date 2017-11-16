@@ -17,7 +17,7 @@ from .views import HomeView, AdministrationView
 from django.views.generic.base import RedirectView
 
 urlpatterns = [
-    path(r'admin/', admin.site.urls),
+    path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
     path('admin/', ambition_subject_admin.urls),
     path('admin/', edc_lab_admin.urls),

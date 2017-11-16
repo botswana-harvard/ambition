@@ -22,9 +22,7 @@ from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
 from edc_lab_dashboard.apps import AppConfig as BaseEdcLabDashboardAppConfig
 from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
-from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig, SubjectType, Cap
-from edc_timepoint.apps import AppConfig as BaseEdcTimepointAppConfig
-from edc_timepoint.timepoint import Timepoint
+from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
@@ -41,23 +39,15 @@ class AppConfig(DjangoAppConfig):
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     protocol = 'BHP092'
-    protocol_number = '092'
     protocol_name = 'Ambition'
+    protocol_number = '092'
     protocol_title = ''
-    subject_types = [
-        SubjectType('subject', 'Research Subject',
-                    Cap(model_name='ambition_subject.subjectconsent', max_subjects=9999)),
-    ]
-    study_open_datetime = datetime(2016, 12, 31, 0, 0, 0, tzinfo=gettz('UTC'))
-    study_close_datetime = datetime(2019, 12, 31, 0, 0, 0, tzinfo=gettz('UTC'))
-
-    @property
-    def site_name(self):
-        return 'Gaborone'
-
-    @property
-    def site_code(self):
-        return '40'
+    site_code = '40'
+    site_name = 'Gaborone'
+    study_open_datetime = datetime(
+        2016, 12, 31, 0, 0, 0, tzinfo=gettz('UTC'))
+    study_close_datetime = datetime(
+        2019, 12, 31, 23, 59, 59, tzinfo=gettz('UTC'))
 
 
 class AmbitionSubjectAppConfig(BaseAmbitionSubjectAppConfig):
@@ -72,25 +62,15 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
     base_template_name = 'ambition/base.html'
     requisition_model = 'ambition_subject.subjectrequisition'
     result_model = 'edc_lab.result'
-
-    @property
-    def study_site_name(self):
-        return 'Gaborone'
-
-    @property
-    def site_code(self):
-        return '40'
+    study_site_name = 'Gaborone'
+    site_code = '40'
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     project_name = 'Ambition'
     institution = 'Botswana-Harvard AIDS Institute'
-    copyright = '2017-{}'.format(get_utcnow().year)
+    copyright = f'2017-{get_utcnow().year}'
     license = 'GNU GENERAL PUBLIC LICENSE Version 3'
-
-
-class EdcConsentAppConfig(BaseEdcConsentAppConfig):
-    pass
 
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
@@ -114,13 +94,11 @@ class EdcMetadataAppConfig(BaseEdcMetadataAppConfig):
 
 
 class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
-    app_label = 'ambition_subject'
-    default_appt_type = 'hospital'
     configurations = [
         AppointmentConfig(
-            model='ambition_subject.appointment',
-            related_visit_model='ambition_subject.subjectvisit')
-    ]
+            model='edc_appointment.appointment',
+            related_visit_model='ambition_subject.subjectvisit',
+            appt_type='hospital')]
 
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
@@ -129,23 +107,6 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
         'clinic': Facility(
             name='clinic', days=[MO, TU, WE, TH, FR, SA, SU],
             slots=[99999, 99999, 99999, 99999, 99999, 99999, 99999])}
-
-
-class EdcTimepointAppConfig(BaseEdcTimepointAppConfig):
-    timepoints = [
-        Timepoint(
-            model='ambition_subject.appointment',
-            datetime_field='appt_datetime',
-            status_field='appt_status',
-            closed_status='DONE'
-        ),
-        Timepoint(
-            model='ambition_subject.historicalappointment',
-            datetime_field='appt_datetime',
-            status_field='appt_status',
-            closed_status='DONE'
-        ),
-    ]
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
