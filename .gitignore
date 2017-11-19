@@ -1,5 +1,5 @@
 git_pull.sh
-etc/mysql.conf
+etc/
 .project
 .pydevproject
 .settings/

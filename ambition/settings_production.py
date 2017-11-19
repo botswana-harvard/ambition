@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_facility.apps.AppConfig',
+    'edc_form_validators.apps.AppConfig',
     'edc_fieldsets.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
