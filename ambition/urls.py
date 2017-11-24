@@ -36,7 +36,7 @@ urlpatterns = [
     path('ambition_subject/', include('ambition_subject.urls')),
     path('subject/', include('ambition_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
-    path('edc/', include('edc_base.urls')),
+    path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('edc_device/', include('edc_device.urls')),
     path('edc_lab/', include('edc_lab.urls')),
