@@ -167,10 +167,12 @@ TIME_ZONE = 'Africa/Gaborone'
 
 USE_I18N = True
 
+# set to False so DATE formats below are used
 USE_L10N = False
 
 USE_TZ = True
 
+DATE_INPUT_FORMATS = ['%Y-%m-%d', '%d/%m/%Y']
 DATETIME_INPUT_FORMATS = [
     '%Y-%m-%d %H:%M:%S',     # '2006-10-25 14:30:59'
     '%Y-%m-%d %H:%M:%S.%f',  # '2006-10-25 14:30:59.000200'
@@ -181,12 +183,11 @@ DATETIME_INPUT_FORMATS = [
     '%d/%m/%Y %H:%M',        # '25/10/2006 14:30'
     '%d/%m/%Y',              # '25/10/2006'
 ]
-DATE_INPUT_FORMATS = ['%Y-%m-%d', '%d/%m/%Y']
-
-DATETIME_FORMAT = 'j N Y P'
 DATE_FORMAT = 'j N Y'
-SHORT_DATETIME_FORMAT = 'd/m/Y P'
+DATETIME_FORMAT = 'j N Y P'
 SHORT_DATE_FORMAT = 'd/m/Y'
+SHORT_DATETIME_FORMAT = 'd/m/Y P'
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
