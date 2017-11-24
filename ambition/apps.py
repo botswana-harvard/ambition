@@ -14,7 +14,6 @@ from edc_base.utils import get_utcnow
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
-from edc_facility import Facility
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
@@ -102,10 +101,9 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
 
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
     country = 'botswana'
-    facilities = {
-        'clinic': Facility(
-            name='clinic', days=[MO, TU, WE, TH, FR, SA, SU],
-            slots=[99999, 99999, 99999, 99999, 99999, 99999, 99999])}
+    definitions = {
+        'clinic': dict(days=[MO, TU, WE, TH, FR, SA, SU],
+                       slots=[100, 100, 100, 100, 100])}
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
