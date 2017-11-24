@@ -67,8 +67,6 @@ class EdcLabAppConfig(BaseEdcLabAppConfig):
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
     project_name = 'Ambition'
     institution = 'Botswana-Harvard AIDS Institute'
-    copyright = f'2017-{get_utcnow().year}'
-    license = 'GNU GENERAL PUBLIC LICENSE Version 3'
 
 
 class EdcDeviceAppConfig(BaseEdcDeviceAppConfig):
