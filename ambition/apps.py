@@ -102,8 +102,10 @@ class EdcAppointmentAppConfig(BaseEdcAppointmentAppConfig):
 class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
     country = 'botswana'
     definitions = {
-        'clinic': dict(days=[MO, TU, WE, TH, FR, SA, SU],
-                       slots=[100, 100, 100, 100, 100])}
+        '7-day clinic': dict(days=[MO, TU, WE, TH, FR, SA, SU],
+                             slots=[100, 100, 100, 100, 100]),
+        '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
+                             slots=[100, 100, 100, 100, 100])}
 
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
