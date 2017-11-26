@@ -2,6 +2,7 @@ from ambition_rando.admin_site import ambition_rando_admin
 from ambition_subject.admin_site import ambition_subject_admin
 from django.contrib import admin
 from django.urls.conf import path, include
+from django.views.generic.base import RedirectView
 from edc_appointment.admin_site import edc_appointment_admin
 from edc_base.views import LogoutView, LoginView
 from edc_identifier.admin_site import edc_identifier_admin
@@ -14,7 +15,6 @@ from edc_sync.admin import edc_sync_admin
 from edc_sync_files.admin_site import edc_sync_files_admin
 
 from .views import HomeView, AdministrationView
-from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),

@@ -1,3 +1,4 @@
+from django.conf import settings
 from edc_navbar import NavbarItem, site_navbars, Navbar
 
 ambition = Navbar(name='ambition')
@@ -7,14 +8,14 @@ ambition.append_item(
         name='screened_subject',
         label='Screening',
         fa_icon='fa-user-plus',
-        url_name='ambition_dashboard:screening_listboard_url'))
+        url_name=settings.DASHBOARD_URL_NAMES.get('screening_listboard_url')))
 
 ambition.append_item(
     NavbarItem(
         name='consented_subject',
         label='Subjects',
         fa_icon='fa-user-circle-o',
-        url_name='ambition_dashboard:listboard_url'))
+        url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
 ambition.append_item(
     NavbarItem(

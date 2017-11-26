@@ -4,16 +4,12 @@ from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 
 from edc_base.view_mixins import EdcBaseViewMixin
-from edc_dashboard.view_mixins import AppConfigViewMixin
 from edc_navbar import NavbarViewMixin
 from edc_base.view_mixins import AdministrationViewMixin
 
 
-class AdministrationView(EdcBaseViewMixin, AppConfigViewMixin,
-                         NavbarViewMixin, AdministrationViewMixin, TemplateView):
-
-    # template_name = 'ambition/administration.html'
-    app_config_name = 'ambition'
+class AdministrationView(EdcBaseViewMixin, NavbarViewMixin,
+                         AdministrationViewMixin, TemplateView):
 
     navbar_name = 'ambition'
     navbar_selected_item = 'administration'
