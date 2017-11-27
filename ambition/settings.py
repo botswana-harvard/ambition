@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
-    'django_js_reverse',
+    # 'django_js_reverse',
     'django_extensions',
     'crispy_forms',
     'tz_detect',
@@ -187,9 +187,9 @@ DATETIME_INPUT_FORMATS = [
     '%d/%m/%Y',              # '25/10/2006'
 ]
 DATE_FORMAT = 'j N Y'
-DATETIME_FORMAT = 'j N Y P'
+DATETIME_FORMAT = 'j N Y H:i'
 SHORT_DATE_FORMAT = 'd/m/Y'
-SHORT_DATETIME_FORMAT = 'd/m/Y P'
+SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
