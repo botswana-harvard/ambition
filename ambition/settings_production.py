@@ -42,22 +42,21 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
-    'edc_consent.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
-    'edc_facility.apps.AppConfig',
     'edc_form_validators.apps.AppConfig',
     'edc_fieldsets.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
     'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
-    'edc_timepoint.apps.AppConfig',
     'edc_pharmacy.apps.AppConfig',
     'edc_pharmacy_dashboard.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_reference.apps.AppConfig',
+    'edc_consent.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
+    'edc_timepoint.apps.AppConfig',
     'ambition_dashboard.apps.AppConfig',
     'ambition_labs.apps.AppConfig',
     'ambition_metadata_rules.apps.AppConfig',
@@ -75,6 +74,7 @@ INSTALLED_APPS = [
     'ambition.apps.EdcMetadataAppConfig',
     'ambition.apps.EdcProtocolAppConfig',
     'ambition.apps.EdcVisitTrackingAppConfig',
+    'ambition.apps.EdcFacilityAppConfig',
     'ambition.apps.AppConfig',
 ]
 
@@ -86,6 +86,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'edc_dashboard.middleware.DashboardMiddleware',
+    'edc_subject_dashboard.middleware.DashboardMiddleware',
+    'edc_lab_dashboard.middleware.DashboardMiddleware',
 ]
 
 ROOT_URLCONF = 'ambition.urls'
@@ -192,6 +195,20 @@ EDC_SYNC_SERVER_IP = None
 EDC_SYNC_FILES_REMOTE_HOST = None
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
+
+DASHBOARD_URL_NAMES = {
+    'subject_listboard_url': 'ambition_dashboard:subject_listboard_url',
+    'screening_listboard_url': 'ambition_dashboard:screening_listboard_url',
+    'subject_dashboard_url': 'ambition_dashboard:subject_dashboard_url',
+}
+
+DASHBOARD_BASE_TEMPLATES = {
+    'listboard_base_template': 'ambition/base.html',
+    'dashboard_base_template': 'ambition/base.html',
+    'screening_listboard_template': 'ambition_dashboard/screening/listboard.html',
+    'subject_listboard_template': 'ambition_dashboard/subject/listboard.html',
+    'subject_dashboard_template': 'ambition_dashboard/subject/dashboard.html',
+}
 
 DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
