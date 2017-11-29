@@ -93,4 +93,4 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
 
 class EdcLabelAppConfig(BaseEdcLabelAppConfig):
     template_folder = os.path.join(
-        settings.STATIC_ROOT, 'ambition', 'label_templates')
+        settings.STATIC_ROOT, 'label_templates')
