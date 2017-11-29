@@ -3,6 +3,7 @@ from ambition_subject.admin_site import ambition_subject_admin
 from django.contrib import admin
 from django.urls.conf import path, include
 from django.views.generic.base import RedirectView
+from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
 from edc_base.views import LogoutView, LoginView
 from edc_identifier.admin_site import edc_identifier_admin
@@ -28,6 +29,7 @@ urlpatterns = [
     path('admin/', edc_sync_admin.urls),
     path('admin/', ambition_rando_admin.urls),
     path('admin/', edc_pharmacy_admin.urls),
+    path('admin/', edc_action_item_admin.urls),
     path('admin/edc_sync_files/', edc_sync_files_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
@@ -36,6 +38,7 @@ urlpatterns = [
     path('ambition_subject/', include('ambition_subject.urls')),
     path('subject/', include('ambition_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
+    path('edc_action_item/', include('edc_action_item.urls')),
     path('edc_base/', include('edc_base.urls')),
     path('edc_consent/', include('edc_consent.urls')),
     path('edc_device/', include('edc_device.urls')),
@@ -55,6 +58,7 @@ urlpatterns = [
     path('tz_detect/', include('tz_detect.urls')),
     path('login', LoginView.as_view(), name='login_url'),
     path('accounts/login/', LoginView.as_view(), name='login_url'),
+    # path(r'^accounts/login/', include('registration.backends.hmac.urls')),
     path('logout', LogoutView.as_view(
         pattern_name='login_url'), name='logout_url'),
     path('home/', HomeView.as_view(), name='home_url'),

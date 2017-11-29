@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
+    # 'registration',
     # 'django_js_reverse',
     'django_extensions',
     'crispy_forms',
@@ -54,6 +55,7 @@ INSTALLED_APPS = [
     'edc_navbar.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_consent.apps.AppConfig',
+    'edc_action_item.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
@@ -195,7 +197,7 @@ SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'ambition', 'static')
+STATIC_ROOT = os.path.join(os.path.expanduser('~/source/static'))
 GIT_DIR = BASE_DIR
 KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 
@@ -229,6 +231,8 @@ DASHBOARD_BASE_TEMPLATES = {
 DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
+
+# ACCOUNT_ACTIVATION_DAYS = 7
 
 if 'test' in sys.argv:
 
