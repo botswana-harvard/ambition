@@ -12,7 +12,9 @@ from edc_appointment.models.appointment import Appointment
 from model_mommy import mommy
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.firefox.webdriver import WebDriver
-from pprint import pprint
+from django.conf import settings
+from edc_lab_dashboard.dashboard_urls import dashboard_urls
+from django.urls.exceptions import NoReverseMatch
 
 style = color_style()
 
@@ -56,7 +58,7 @@ class SeleniumTestModelFormMixin:
 
         For example:
             self.fill_form(
-                model='ambition_subject.subjectscreening',
+                model=self.subject_screening_model,
                 obj=obj, exclude=['subject_identifier', 'report_datetime'])
         """
         save = True if save is None else save
@@ -136,6 +138,13 @@ class SeleniumTestModelFormMixin:
 @override_settings(DEBUG=True)
 class MySeleniumTests(SeleniumLoginMixin, SeleniumTestModelFormMixin, StaticLiveServerTestCase):
 
+    appointment_model = 'edc_appointment.appointment'
+    subject_screening_model = 'ambition_subject.subjectscreening'
+    subject_consent_model = 'ambition_subject.subjectconsent'
+    extra_url_names = [
+        'home_url',
+        'administration_url']
+
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
@@ -149,43 +158,42 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumTestModelFormMixin, StaticLive
 
     def setUp(self):
         import_randomization_list()
-        self.url_names = [
-            'home_url',
-            'administration_url',
-            'ambition_dashboard:screening_listboard_url',
-            'ambition_dashboard:subject_listboard_url',
-            'edc_lab_dashboard:home_url',
-            'edc_lab_dashboard:receive_listboard_url',
-            'edc_lab_dashboard:process_listboard_url',
-            'edc_lab_dashboard:pack_listboard_url',
-            'edc_lab_dashboard:manifest_listboard_url',
-            'edc_lab_dashboard:aliquot_listboard_url',
-            'edc_lab_dashboard:result_listboard_url',
-        ]
+        url_names = (self.extra_url_names
+                     + list(settings.DASHBOARD_URL_NAMES.values())
+                     + list(settings.LAB_DASHBOARD_URL_NAMES.values())
+                     + list(dashboard_urls.values()))
+        self.url_names = list(set(url_names))
         super().setUp()
 
+    @tag('1')
     def test_navbar_urls(self):
+        """Follows any url that can be reversed without kwargs.
+        """
         self.login()
         for url_name in self.url_names:
-            url = reverse(url_name)
-            self.selenium.get('%s%s' % (self.live_server_url, url))
-            self.selenium.implicitly_wait(2)
+            try:
+                url = reverse(url_name)
+            except NoReverseMatch:
+                sys.stdout.write(style.ERROR(f'NoReverseMatch: {url_name}\n'))
+            else:
+                sys.stdout.write(style.SUCCESS(f'{url_name} {url}\n'))
+                self.selenium.get('%s%s' % (self.live_server_url, url))
+                self.selenium.implicitly_wait(2)
 
-    @tag('1')
     def test_subject_screening_to_subject_dashboard(self):
         self.login()
 
-        url = reverse('ambition_dashboard:screening_listboard_url')
-
+        url = reverse(settings.DASHBOARD_URL_NAMES.get(
+            'screening_listboard_url'))
         self.selenium.get('%s%s' % (self.live_server_url, url))
         self.selenium.implicitly_wait(3)
         self.selenium.find_element_by_id('subjectscreening_add').click()
         self.selenium.implicitly_wait(10)
 
         # add a subject screening form
-        obj = mommy.prepare_recipe('ambition_subject.subjectscreening')
+        obj = mommy.prepare_recipe(self.subject_screening_model)
         model_obj = self.fill_form(
-            model='ambition_subject.subjectscreening',
+            model=self.subject_screening_model,
             obj=obj, exclude=['subject_identifier', 'report_datetime'])
 
         # assert back at screening listboard
@@ -201,13 +209,13 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumTestModelFormMixin, StaticLive
             f'subjectconsent_add_{model_obj.screening_identifier}').click()
 
         obj = mommy.prepare_recipe(
-            'ambition_subject.subjectconsent',
+            self.subject_consent_model,
             **{'screening_identifier': model_obj.screening_identifier,
                'dob': model_obj.estimated_dob,
                'gender': model_obj.gender})
         obj.initials = f'{obj.first_name[0]}{obj.last_name[0]}'
         model_obj = self.fill_form(
-            model='ambition_subject.subjectconsent', obj=obj,
+            model=self.subject_consent_model, obj=obj,
             exclude=['subject_identifier', 'citizen', 'legal_marriage',
                      'marriage_certificate', 'subject_type',
                      'gender', 'study_site'],
@@ -224,7 +232,7 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumTestModelFormMixin, StaticLive
             f'start_btn_{appointment.visit_code}_'
             f'{appointment.visit_code_sequence}').click()
         model_obj = self.fill_form(
-            model='edc_appointment.appointment', obj=appointment,
+            model=self.appointment_model, obj=appointment,
             values={'appt_status': IN_PROGRESS_APPT,
                     'appt_reason': SCHEDULED_APPT},
             exclude=['subject_identifier',

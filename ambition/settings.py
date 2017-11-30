@@ -219,7 +219,7 @@ DASHBOARD_URL_NAMES = {
     'screening_listboard_url': 'ambition_dashboard:screening_listboard_url',
     'subject_dashboard_url': 'ambition_dashboard:subject_dashboard_url',
 }
-
+LAB_DASHBOARD_URL_NAMES = {}
 DASHBOARD_BASE_TEMPLATES = {
     'listboard_base_template': 'ambition/base.html',
     'dashboard_base_template': 'ambition/base.html',
@@ -227,6 +227,7 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_listboard_template': 'ambition_dashboard/subject/listboard.html',
     'subject_dashboard_template': 'ambition_dashboard/subject/dashboard.html',
 }
+
 
 DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
