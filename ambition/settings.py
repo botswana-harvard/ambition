@@ -21,7 +21,6 @@ ETC_DIR = os.path.join(BASE_DIR, 'etc')
 
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
-ALLOWED_HOSTS = []
 
 # Application definition
 
@@ -43,11 +42,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
+    'edc_prn.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_form_validators.apps.AppConfig',
     'edc_fieldsets.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
+    'edc_list_data.apps.AppConfig',
     'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
     'edc_pharmacy.apps.AppConfig',
@@ -199,7 +200,6 @@ SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(os.path.expanduser('~/source/static'))
 GIT_DIR = BASE_DIR
-KEY_PATH = os.path.join(BASE_DIR, 'crypto_fields')
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
 LABEL_PRINTER = 'test_label_printer_ambition'
@@ -234,6 +234,9 @@ HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
 
 # ACCOUNT_ACTIVATION_DAYS = 7
+
+EMAIL_CONTACTS = {
+    'ae_reports': 'ambitionreporting@lshtm.ac.uk'}
 
 if 'test' in sys.argv:
 
