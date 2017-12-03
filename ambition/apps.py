@@ -6,6 +6,7 @@ from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
 from django.conf import settings
 from django.core.management.color import color_style
+from django.core.checks import register
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
@@ -27,6 +28,10 @@ style = color_style()
 
 class AppConfig(DjangoAppConfig):
     name = 'ambition'
+
+    def ready(self):
+        from .system_checks import randomization_list_check
+        register(randomization_list_check)(['ambition'])
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
