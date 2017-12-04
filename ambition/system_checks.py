@@ -15,7 +15,7 @@ def randomization_list_check(app_configs, **kwargs):
     check_failed = False
     errors = []
     error = error_configs.get('randomization_list_check')
-    if 'test' not in sys.argv:
+    if 'test' not in sys.argv and 'makemigrations' not in sys.argv and 'migrate' not in sys.argv:
         model_cls = django_apps.get_model('ambition_rando.randomizationlist')
         if model_cls.objects.all().count() == 0:
             error_msg = 'Randomization list is not loaded. Run the management command.'
