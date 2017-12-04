@@ -42,11 +42,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
+    'edc_prn.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_form_validators.apps.AppConfig',
     'edc_fieldsets.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
+    'edc_list_data.apps.AppConfig',
     'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
     'edc_pharmacy.apps.AppConfig',
@@ -213,6 +215,9 @@ DASHBOARD_BASE_TEMPLATES = {
 DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
+
+EMAIL_CONTACTS = {
+    'ae_reports': 'ambitionreporting@lshtm.ac.uk'}
 
 if 'test' in sys.argv:
 
