@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     # 'django_js_reverse',
     'django_extensions',
     'crispy_forms',
-    'tz_detect',
+    # 'tz_detect',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
