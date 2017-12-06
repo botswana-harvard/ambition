@@ -34,7 +34,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
-    'django_js_reverse',
+    # 'registration',
+    # 'django_js_reverse',
     'django_extensions',
     'crispy_forms',
     # 'tz_detect',
@@ -42,11 +43,13 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
+    'edc_prn.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_form_validators.apps.AppConfig',
     'edc_fieldsets.apps.AppConfig',
     'edc_subject_dashboard.apps.AppConfig',
     'edc_lab_dashboard.apps.AppConfig',
+    'edc_list_data.apps.AppConfig',
     'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
     'edc_pharmacy.apps.AppConfig',
@@ -54,6 +57,7 @@ INSTALLED_APPS = [
     'edc_navbar.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_consent.apps.AppConfig',
+    'edc_action_item.apps.AppConfig',
     'edc_metadata_rules.apps.AppConfig',
     'edc_registration.apps.AppConfig',
     'edc_timepoint.apps.AppConfig',
@@ -65,6 +69,7 @@ INSTALLED_APPS = [
     'ambition_subject.apps.AppConfig',
     'ambition_validators.apps.AppConfig',
     'ambition_visit_schedule.apps.AppConfig',
+    'ambition_ae.apps.AppConfig',
     'ambition.apps.EdcAppointmentAppConfig',
     'ambition.apps.EdcBaseAppConfig',
     'ambition.apps.EdcDeviceAppConfig',
@@ -213,6 +218,9 @@ DASHBOARD_BASE_TEMPLATES = {
 DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
+
+EMAIL_CONTACTS = {
+    'ae_reports': 'ambitionreporting@lshtm.ac.uk'}
 
 if 'test' in sys.argv:
 
