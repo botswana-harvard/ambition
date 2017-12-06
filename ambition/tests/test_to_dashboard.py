@@ -30,7 +30,7 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumModelFormMixin, StaticLiveServ
     def setUpClass(cls):
         super().setUpClass()
         cls.selenium = WebDriver()
-        cls.selenium.implicitly_wait(10)
+        cls.selenium.implicitly_wait(3)
 
     @classmethod
     def tearDownClass(cls):

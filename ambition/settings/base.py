@@ -2,24 +2,19 @@ import os
 import sys
 
 from django.core.management.color import color_style
+from pathlib import Path
 
-from .logging import LOGGING
+from ..logging import LOGGING
 
 style = color_style()
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = str(Path(os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__)))).parent)
 APP_NAME = 'ambition'
 
 logging_handler = LOGGING.get('handlers').get('file').get('filename')
 sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
-
-
-DEBUG = True
-
-ETC_DIR = os.path.join(BASE_DIR, 'etc')
-
-SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
 
 # Application definition
@@ -117,27 +112,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ambition.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/1.11/ref/settings/#databases
-
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#     }
-# }
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-        },
-    },
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -201,7 +175,8 @@ SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(os.path.expanduser('~/source/static'))
+
+
 GIT_DIR = BASE_DIR
 
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
@@ -241,17 +216,3 @@ COUNTRY = 'botswana'
 
 EMAIL_CONTACTS = {
     'ae_reports': 'ambitionreporting@lshtm.ac.uk'}
-
-if 'test' in sys.argv:
-
-    class DisableMigrations:
-
-        def __contains__(self, item):
-            return True
-
-        def __getitem__(self, item):
-            return None
-
-    MIGRATION_MODULES = DisableMigrations()
-    PASSWORD_HASHERS = ('django.contrib.auth.hashers.MD5PasswordHasher', )
-    DEFAULT_FILE_STORAGE = 'inmemorystorage.InMemoryStorage'
