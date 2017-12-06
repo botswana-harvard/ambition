@@ -14,6 +14,7 @@ from edc_list_data.site_list_data import site_list_data
 from edc_selenium.mixins import SeleniumLoginMixin, SeleniumModelFormMixin
 from model_mommy import mommy
 from selenium.webdriver.firefox.webdriver import WebDriver
+from edc_action_item.site_action_items import site_action_items
 
 
 style = color_style()
@@ -42,6 +43,8 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumModelFormMixin, StaticLiveServ
 
     def setUp(self):
         import_randomization_list()
+        site_action_items.populates_action_types = False
+        site_action_items.populate_action_type()
         url_names = (self.extra_url_names
                      + list(settings.DASHBOARD_URL_NAMES.values())
                      + list(settings.LAB_DASHBOARD_URL_NAMES.values())
