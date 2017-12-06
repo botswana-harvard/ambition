@@ -1,3 +1,4 @@
+from ambition_ae.action_items import AE_INITIAL_ACTION
 from ambition_rando.import_randomization_list import import_randomization_list
 from django.apps import apps as django_apps
 from django.conf import settings
@@ -13,6 +14,7 @@ from edc_list_data.site_list_data import site_list_data
 from edc_selenium.mixins import SeleniumLoginMixin, SeleniumModelFormMixin
 from model_mommy import mommy
 from selenium.webdriver.firefox.webdriver import WebDriver
+
 
 style = color_style()
 
@@ -130,8 +132,7 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumModelFormMixin, StaticLiveServ
     @tag('3')
     def test_action_item(self):
 
-        action_type = ActionType.objects.get(
-            display_name='Submit initial AE report')
+        action_type = ActionType.objects.get(name=AE_INITIAL_ACTION)
 
         for _ in range(0, 5):
             self.add_consented_subject()

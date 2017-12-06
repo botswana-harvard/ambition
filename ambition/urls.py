@@ -38,6 +38,7 @@ urlpatterns = [
     path('admin/ambition_subject/', RedirectView.as_view(url='admin/ambition_subject/'),
          name='subject_models_url'),
     path('ambition_subject/', include('ambition_subject.urls')),
+    path('ambition_ae/', include('ambition_ae.urls')),
     path('subject/', include('ambition_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
