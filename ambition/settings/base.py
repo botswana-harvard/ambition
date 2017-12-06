@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
-    'logentry_admin',
+    # 'logentry_admin',
     # 'registration',
     # 'django_js_reverse',
     'django_extensions',
