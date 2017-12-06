@@ -202,6 +202,7 @@ EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
 
 DASHBOARD_URL_NAMES = {
+    'subject_models_url': 'subject_models_url',
     'subject_listboard_url': 'ambition_dashboard:subject_listboard_url',
     'screening_listboard_url': 'ambition_dashboard:screening_listboard_url',
     'subject_dashboard_url': 'ambition_dashboard:subject_dashboard_url',
