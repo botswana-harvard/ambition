@@ -10,7 +10,7 @@ def deployment_host(bootstrap_path=None, release=None, specific_tag=None,
     """
     Example:
 
-        brew update && fab -H localhost deploy.deployment_host:bootstrap_path=/Users/django/source/bcpp/fabfile/conf/,release=develop,use_branch=True,bootstrap_branch=develop,skip_pip_download=True,skip_clone=True
+        brew update && fab -H localhost deployment_host:bootstrap_path=/Users/django/source/ambition/fabfile/conf/,release=develop,use_branch=True,bootstrap_branch=develop,skip_pip_download=True,skip_clone=True
 
     """
     execute(prepare_deployment_host,
