@@ -50,4 +50,3 @@ git+https://github.com/erikvw/django-crypto-fields.git@develop#egg=django_crypto
 git+https://github.com/erikvw/django-revision.git@develop#egg=django_revision
 git+https://github.com/erikvw/django-simple-history.git@master#egg=django_simple_history
 git+https://github.com/erikvw/django-js-reverse.git@develop#egg=django_js_reverse
-
