@@ -37,6 +37,7 @@ git+https://github.com/botswana-harvard/edc-prn.git@develop#egg=edc_prn
 git+https://github.com/botswana-harvard/edc-protocol.git@develop#egg=edc_protocol
 git+https://github.com/botswana-harvard/edc-reference.git@develop#egg=edc_reference
 git+https://github.com/botswana-harvard/edc-registration.git@develop#egg=edc_registration
+git+https://github.com/botswana-harvard/edc-reportable.git@develop#egg=edc_reportable
 git+https://github.com/botswana-harvard/edc-search@develop#egg=edc_search
 git+https://github.com/botswana-harvard/edc-subject-dashboard#egg=edc_subject_dashboard
 git+https://github.com/botswana-harvard/edc-sync-files@develop#egg=edc_sync_files
