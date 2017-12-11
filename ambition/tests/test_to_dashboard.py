@@ -22,7 +22,7 @@ style = color_style()
 class MySeleniumTests(SeleniumLoginMixin, SeleniumModelFormMixin, StaticLiveServerTestCase):
 
     appointment_model = 'edc_appointment.appointment'
-    subject_screening_model = 'ambition_subject.subjectscreening'
+    subject_screening_model = 'ambition_screening.subjectscreening'
     subject_consent_model = 'ambition_subject.subjectconsent'
     extra_url_names = ['home_url', 'administration_url']
 

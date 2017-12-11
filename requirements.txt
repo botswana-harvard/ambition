@@ -1,4 +1,5 @@
 git+https://github.com/botswana-harvard/ambition-ae.git@develop#egg=ambition_ae
+git+https://github.com/botswana-harvard/ambition-screening.git@develop#egg=ambition_screening
 git+https://github.com/botswana-harvard/ambition-dashboard.git@develop#egg=ambition_dashboard
 git+https://github.com/botswana-harvard/ambition-metadata-rules.git@develop#egg=ambition_metadata_rules
 git+https://github.com/botswana-harvard/ambition-pharmacy.git@develop#egg=ambition_pharmacy

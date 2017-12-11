@@ -1,5 +1,6 @@
 from ambition_ae.admin_site import ambition_ae_admin
 from ambition_rando.admin_site import ambition_rando_admin
+from ambition_screening.admin_site import ambition_screening_admin
 from ambition_subject.admin_site import ambition_subject_admin
 from django.contrib import admin
 from django.urls.conf import path, include
@@ -21,8 +22,9 @@ from .views import HomeView, AdministrationView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
-    path('admin/', ambition_ae_admin.urls),
     path('admin/', ambition_subject_admin.urls),
+    path('admin/', ambition_ae_admin.urls),
+    path('admin/', ambition_screening_admin.urls),
     path('admin/', edc_lab_admin.urls),
     path('admin/', edc_identifier_admin.urls),
     path('admin/', edc_metadata_admin.urls),
