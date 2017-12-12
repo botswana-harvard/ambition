@@ -30,7 +30,7 @@ class AppConfig(DjangoAppConfig):
     name = 'ambition'
 
     def ready(self):
-        from .system_checks import randomization_list_check
+        from ambition_rando.system_checks import randomization_list_check
         register(randomization_list_check)(['ambition'])
 
 

@@ -1,5 +1,4 @@
 from ambition_ae.admin_site import ambition_ae_admin
-from ambition_rando.admin_site import ambition_rando_admin
 from ambition_screening.admin_site import ambition_screening_admin
 from ambition_subject.admin_site import ambition_subject_admin
 from django.contrib import admin
@@ -31,7 +30,6 @@ urlpatterns = [
     path('admin/', edc_registration_admin.urls),
     path('admin/', edc_reference_admin.urls),
     path('admin/', edc_sync_admin.urls),
-    path('admin/', ambition_rando_admin.urls),
     path('admin/', edc_pharmacy_admin.urls),
     path('admin/', edc_action_item_admin.urls),
     path('admin/edc_sync_files/', edc_sync_files_admin.urls),
