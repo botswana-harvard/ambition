@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'edc_model_admin.apps.AppConfig',
     'edc_prn.apps.AppConfig',
+    'edc_offstudy.apps.AppConfig',
     'edc_dashboard.apps.AppConfig',
     'edc_form_validators.apps.AppConfig',
     'edc_fieldsets.apps.AppConfig',
