@@ -6,6 +6,7 @@ git+https://github.com/botswana-harvard/ambition-pharmacy.git@develop#egg=ambiti
 git+https://github.com/botswana-harvard/ambition-rando.git@develop#egg=ambition_rando
 git+https://github.com/botswana-harvard/ambition-labs.git@develop#egg=ambition_labs
 git+https://github.com/botswana-harvard/ambition-reference.git@develop#egg=ambition_reference
+git+https://github.com/botswana-harvard/ambition-prn.git@develop#egg=ambition_prn
 git+https://github.com/botswana-harvard/ambition_subject.git@develop#egg=ambition_subject
 git+https://github.com/botswana-harvard/ambition-validators@develop#egg=ambition_validators
 git+https://github.com/botswana-harvard/ambition-visit-schedule.git@develop#egg=ambition_visit_schedule
