@@ -1,4 +1,5 @@
 from ambition_ae.admin_site import ambition_ae_admin
+from ambition_prn.admin_site import ambition_prn_admin
 from ambition_screening.admin_site import ambition_screening_admin
 from ambition_subject.admin_site import ambition_subject_admin
 from django.contrib import admin
@@ -23,6 +24,7 @@ urlpatterns = [
     path('admin/', edc_appointment_admin.urls),
     path('admin/', ambition_subject_admin.urls),
     path('admin/', ambition_ae_admin.urls),
+    path('admin/', ambition_prn_admin.urls),
     path('admin/', ambition_screening_admin.urls),
     path('admin/', edc_lab_admin.urls),
     path('admin/', edc_identifier_admin.urls),
@@ -39,6 +41,7 @@ urlpatterns = [
          name='subject_models_url'),
     path('ambition_subject/', include('ambition_subject.urls')),
     path('ambition_ae/', include('ambition_ae.urls')),
+    path('ambition_prn/', include('ambition_prn.urls')),
     path('subject/', include('ambition_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),
