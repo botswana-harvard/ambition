@@ -1,13 +1,15 @@
-from .base import *
+from ..base import *
 
 DEBUG = False
+
+# for django.contrib.sites
+SITE_ID = 40
 
 ETC_DIR = os.path.join('/etc', APP_NAME)
 
 # move to a file in /etc  !!!!!!!!!!!!!!!!!!!!!!
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ambition-test.bhp.org.bw']
 
 DATABASES = {
     'default': {

@@ -9,6 +9,8 @@ from django.urls.base import reverse
 from django.urls.exceptions import NoReverseMatch
 from edc_appointment.constants import IN_PROGRESS_APPT, SCHEDULED_APPT
 from edc_appointment.models.appointment import Appointment
+from edc_base.tests.site_test_case_mixin import SiteTestCaseMixin
+from edc_facility.import_holidays import import_holidays
 from edc_lab_dashboard.dashboard_urls import dashboard_urls
 from edc_selenium.mixins import SeleniumLoginMixin, SeleniumModelFormMixin
 from model_mommy import mommy
@@ -18,7 +20,8 @@ style = color_style()
 
 
 @override_settings(DEBUG=True)
-class MySeleniumTests(SeleniumLoginMixin, SeleniumModelFormMixin, StaticLiveServerTestCase):
+class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMixin,
+                      StaticLiveServerTestCase):
 
     appointment_model = 'edc_appointment.appointment'
     subject_screening_model = 'ambition_screening.subjectscreening'
@@ -37,13 +40,14 @@ class MySeleniumTests(SeleniumLoginMixin, SeleniumModelFormMixin, StaticLiveServ
         super().tearDownClass()
 
     def setUp(self):
+        super().setUp()
         import_randomization_list()
+        import_holidays()
         url_names = (self.extra_url_names
                      + list(settings.DASHBOARD_URL_NAMES.values())
                      + list(settings.LAB_DASHBOARD_URL_NAMES.values())
                      + list(dashboard_urls.values()))
         self.url_names = list(set(url_names))
-        super().setUp()
 
     @tag('1')
     def test_follow_urls(self):

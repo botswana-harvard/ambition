@@ -16,6 +16,7 @@ from edc_reference.admin_site import edc_reference_admin
 from edc_registration.admin_site import edc_registration_admin
 from edc_sync.admin import edc_sync_admin
 from edc_sync_files.admin_site import edc_sync_files_admin
+from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 
 from .views import HomeView, AdministrationView
 
@@ -34,6 +35,7 @@ urlpatterns = [
     path('admin/', edc_sync_admin.urls),
     path('admin/', edc_pharmacy_admin.urls),
     path('admin/', edc_action_item_admin.urls),
+    path('admin/', edc_visit_schedule_admin.urls),
     path('admin/edc_sync_files/', edc_sync_files_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
@@ -42,6 +44,7 @@ urlpatterns = [
     path('ambition_subject/', include('ambition_subject.urls')),
     path('ambition_ae/', include('ambition_ae.urls')),
     path('ambition_prn/', include('ambition_prn.urls')),
+    path('ambition_screening/', include('ambition_screening.urls')),
     path('subject/', include('ambition_dashboard.urls')),
     path('appointment/', include('edc_appointment.urls')),
     path('edc_action_item/', include('edc_action_item.urls')),

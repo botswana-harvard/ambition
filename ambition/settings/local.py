@@ -1,11 +1,14 @@
-import os
+import random
 
 from .base import *
+from ..sites import ambition_sites
 
 DEBUG = True
 ETC_DIR = os.path.join(BASE_DIR, 'etc')
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
+SITE_ID = random.choice([s[0] for s in ambition_sites])
+RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'test_randomization_list.csv')
 # Database
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
