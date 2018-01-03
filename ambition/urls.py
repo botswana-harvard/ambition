@@ -10,6 +10,7 @@ from edc_appointment.admin_site import edc_appointment_admin
 from edc_base.views import LogoutView, LoginView
 from edc_identifier.admin_site import edc_identifier_admin
 from edc_lab.admin_site import edc_lab_admin
+from edc_locator.admin_site import edc_locator_admin
 from edc_metadata.admin_site import edc_metadata_admin
 from edc_pharmacy.admin_site import edc_pharmacy_admin
 from edc_reference.admin_site import edc_reference_admin
@@ -28,6 +29,7 @@ urlpatterns = [
     path('admin/', ambition_prn_admin.urls),
     path('admin/', ambition_screening_admin.urls),
     path('admin/', edc_lab_admin.urls),
+    path('admin/', edc_locator_admin.urls),
     path('admin/', edc_identifier_admin.urls),
     path('admin/', edc_metadata_admin.urls),
     path('admin/', edc_registration_admin.urls),
@@ -53,6 +55,7 @@ urlpatterns = [
     path('edc_device/', include('edc_device.urls')),
     path('edc_lab/', include('edc_lab.urls')),
     path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),
+    path('edc_locator/', include('edc_locator.urls')),
     path('edc_pharmacy/', include('edc_pharmacy.urls')),
     path('edc_pharmacy_dashboard/', include('edc_pharmacy_dashboard.urls')),
     path('edc_label/', include('edc_label.urls')),

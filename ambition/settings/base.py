@@ -5,6 +5,7 @@ from django.core.management.color import color_style
 from pathlib import Path
 
 from ..logging import LOGGING
+from ..sites import ambition_sites
 
 style = color_style()
 

@@ -1,3 +1,4 @@
+import os
 import sys
 
 from ambition_rando.import_randomization_list import import_randomization_list
@@ -15,6 +16,7 @@ from edc_lab_dashboard.dashboard_urls import dashboard_urls
 from edc_selenium.mixins import SeleniumLoginMixin, SeleniumModelFormMixin
 from model_mommy import mommy
 from selenium.webdriver.firefox.webdriver import WebDriver
+from ambition.sites import ambition_sites
 
 style = color_style()
 
@@ -23,6 +25,7 @@ style = color_style()
 class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMixin,
                       StaticLiveServerTestCase):
 
+    default_sites = ambition_sites
     appointment_model = 'edc_appointment.appointment'
     subject_screening_model = 'ambition_screening.subjectscreening'
     subject_consent_model = 'ambition_subject.subjectconsent'
@@ -49,7 +52,6 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
                      + list(dashboard_urls.values()))
         self.url_names = list(set(url_names))
 
-    @tag('1')
     def test_follow_urls(self):
         """Follows any url that can be reversed without kwargs.
         """
@@ -70,9 +72,10 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
         url = reverse(settings.DASHBOARD_URL_NAMES.get(
             'screening_listboard_url'))
         self.selenium.get('%s%s' % (self.live_server_url, url))
+        self.selenium.save_screenshot(
+            os.path.join(settings.BASE_DIR, 'screenshots', 'screening_listboard.png'))
         self.selenium.implicitly_wait(3)
         self.selenium.find_element_by_id('subjectscreening_add').click()
-        self.selenium.implicitly_wait(10)
 
         # add a subject screening form
         obj = mommy.prepare_recipe(self.subject_screening_model)
@@ -107,6 +110,8 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
 
         # assert reached at subject dashboard
         self.selenium.find_element_by_id(f'subject_dashboard')
+        self.selenium.save_screenshot(
+            os.path.join(settings.BASE_DIR, 'screenshots', 'subject_dashboard.png'))
 
         # set appointment in progress
         subject_identifier = model_obj.subject_identifier
@@ -124,6 +129,24 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
                      'facility_name'],
             verbose=True)
 
-        self.selenium.implicitly_wait(10)
+        self.selenium.save_screenshot(
+            os.path.join(settings.BASE_DIR, 'screenshots', 'subject_dashboard2.png'))
         # assert back at subject_dashboard
         self.selenium.find_element_by_id(f'subject_dashboard')
+        self.selenium.find_element_by_id(
+            f'start_btn_{appointment.visit_code}_'
+            f'{appointment.visit_code_sequence}').click()
+
+    def test_jump_to_subject_dashboard(self):
+        self.login()
+        subject_screening = mommy.make_recipe(
+            'ambition_screening.subjectscreening')
+        subject_consent = mommy.make_recipe(
+            'ambition_subject.subjectconsent',
+            screening_identifier=subject_screening.screening_identifier)
+        url = reverse(settings.DASHBOARD_URL_NAMES.get(
+            'subject_dashboard_url'),
+            kwargs=dict(subject_identifier=subject_consent.subject_identifier))
+        self.selenium.get('%s%s' % (self.live_server_url, url))
+        self.selenium.find_element_by_id(f'subject_dashboard')
+        self.selenium.implicitly_wait(10)
