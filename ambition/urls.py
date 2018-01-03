@@ -37,7 +37,7 @@ urlpatterns = [
     path('admin/', edc_sync_admin.urls),
     path('admin/', edc_pharmacy_admin.urls),
     path('admin/', edc_action_item_admin.urls),
-    path('admin/', edc_visit_schedule_admin.urls),
+    path('admin/edc_visit_schedule/', edc_visit_schedule_admin.urls),
     path('admin/edc_sync_files/', edc_sync_files_admin.urls),
     path('administration/', AdministrationView.as_view(),
          name='administration_url'),
