@@ -44,6 +44,7 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
         super().tearDownClass()
 
     def setUp(self):
+        super().setUp()
         import_randomization_list()
         import_holidays()
         url_names = (self.extra_url_names
@@ -51,7 +52,6 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
                      + list(settings.LAB_DASHBOARD_URL_NAMES.values())
                      + list(dashboard_urls.values()))
         self.url_names = list(set(url_names))
-        super().setUp()
 
     def go_to_subject_dashboard(self):
 
