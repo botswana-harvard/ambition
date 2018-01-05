@@ -6,6 +6,7 @@ DEBUG = True
 ETC_DIR = os.path.join(BASE_DIR, 'etc')
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'ambition-test.bhp.org.bw']
 SITE_ID = random.choice([s[0] for s in ambition_sites])
 RANDOMIZATION_LIST_PATH = os.path.join(
     BASE_DIR, APP_NAME, 'tests', 'test_randomization_list.csv')
