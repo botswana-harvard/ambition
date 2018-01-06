@@ -1,6 +1,6 @@
 import os
 
-SOURCE_ROOT = os.path.expanduser('~/source')
+SOURCE_ROOT = os.path.expanduser('~/')
 bind = "127.0.0.1:9000"  # Don't use port 80 because nginx occupied it already.
 errorlog = os.path.join(SOURCE_ROOT, 'logs/ambition-gunicorn-error.log')
 accesslog = os.path.join(SOURCE_ROOT, 'logs/ambition-gunicorn-access.log')

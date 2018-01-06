@@ -13,6 +13,7 @@ BASE_DIR = str(Path(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))).parent)
 APP_NAME = 'ambition'
 
+LOG_DIR = os.path.join(os.path.expanduser('~/'), 'logs')
 logging_handler = LOGGING.get('handlers').get('file').get('filename')
 sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
 
