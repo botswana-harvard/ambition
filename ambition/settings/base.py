@@ -5,7 +5,6 @@ from django.core.management.color import color_style
 from pathlib import Path
 
 from ..logging import LOGGING
-from ..sites import ambition_sites
 
 style = color_style()
 
@@ -183,7 +182,7 @@ SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
 
 GIT_DIR = BASE_DIR
 
@@ -216,7 +215,6 @@ DASHBOARD_BASE_TEMPLATES = {
 }
 
 
-DEFAULT_APPOINTMENT_MODEL = 'edc_appointment.appointment'
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
 

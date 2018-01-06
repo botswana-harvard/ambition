@@ -20,6 +20,16 @@ DATABASES = {
     },
 }
 
+# see https://docs.djangoproject.com/en/2.0/topics/cache/
+# requires memcache
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'unix:/tmp/memcached.sock',
+    }
+}
+
+
 STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
 
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')

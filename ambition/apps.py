@@ -22,6 +22,7 @@ from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
+from .system_checks import ambition_check
 
 style = color_style()
 
@@ -32,6 +33,7 @@ class AppConfig(DjangoAppConfig):
     def ready(self):
         from ambition_rando.system_checks import randomization_list_check
         register(randomization_list_check)(['ambition'])
+        register(ambition_check)
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
