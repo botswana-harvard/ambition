@@ -15,8 +15,8 @@ ALLOWED_HOSTS = [
     'ambition.clinicedc.org']
 
 # use the test rando list
-RANDOMIZATION_LIST_PATH = os.path.join(
-    BASE_DIR, APP_NAME, 'tests', 'test_randomization_list.csv')
+# copy tests/'test_randomization_list.csv' to /etc/ambition
+RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'test_randomization_list.csv')
 
 STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
 
