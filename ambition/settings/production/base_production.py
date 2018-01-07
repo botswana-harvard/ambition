@@ -11,7 +11,6 @@ ETC_DIR = os.path.join('/etc', APP_NAME)
 with open(os.path.join(ETC_DIR, 'secret_key')) as f:
     SECRET_KEY = f.read().strip()
 
-
 # see https://docs.djangoproject.com/en/2.0/topics/cache/
 # requires memcache
 CACHES = {

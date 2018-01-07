@@ -219,3 +219,6 @@ COUNTRY = 'botswana'
 # ambition
 EMAIL_CONTACTS = {
     'ae_reports': 'ambitionreporting@lshtm.ac.uk'}
+
+# django_revision
+GIT_DIR = BASE_DIR
