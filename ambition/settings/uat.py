@@ -1,5 +1,8 @@
 from .base import *
 
+# overwrite LOGGING from .base to use syslog for logging
+from .logging import LOGGING
+
 # don't change!
 DEBUG = False
 
@@ -15,25 +18,9 @@ ALLOWED_HOSTS = [
     'ambition-test.bhp.org.bw',
     'ambition.clinicedc.org']
 
-# use the test rando list
-# copy tests/'test_randomization_list.csv' to /etc/ambition
-RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'test_randomization_list.csv')
-
+# static
 STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
 
-KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
-# for first time use
-# AUTO_CREATE_KEYS = True
-
-# dont firget to copy mysql.conf to ETC_DIR
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-        },
-    },
-}
 
 # see https://docs.djangoproject.com/en/2.0/topics/cache/
 CACHES = {
@@ -44,62 +31,13 @@ CACHES = {
 }
 
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse',
-        },
-        'require_debug_true': {
-            '()': 'django.utils.log.RequireDebugTrue',
-        },
-    },
-    'formatters': {
-        'verbose': {
-            'format': '%(process)-5d %(thread)d %(name)-50s %(levelname)-8s %(message)s'
-        },
-        'simple': {
-            'format': '[%(asctime)s] %(name)s %(levelname)s %(message)s',
-            'datefmt': '%d/%b/%Y %H:%M:%S'
-        },
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': os.path.join(LOG_DIR, f'{APP_NAME}-debug.log'),
-        },
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
-        'syslog': {
-            'level': 'DEBUG',
-            'class': 'logging.handlers.SysLogHandler',
-            'facility': 'local7',
-            'address': '/dev/log',
-            'formatter': 'verbose'
-        },
-    },
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-        # root logger
-        '': {
-            'handlers': ['console', 'syslog'],
-            'level': 'INFO',
-            'disabled': False
-        },
-        'ambition': {
-            'handlers': ['console', 'syslog'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
-    },
-}
+# ambition
+# use the test rando list
+# copy tests/'test_randomization_list.csv' to /etc/ambition
+RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'test_randomization_list.csv')
+
+
+# django_crypto_fields
+KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
+# for first time use as a test UAT server
+# AUTO_CREATE_KEYS = True

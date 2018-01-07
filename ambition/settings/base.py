@@ -1,10 +1,7 @@
 import os
-import sys
 
 from django.core.management.color import color_style
 from pathlib import Path
-
-from ..logging import LOGGING
 
 style = color_style()
 
@@ -12,14 +9,9 @@ style = color_style()
 BASE_DIR = str(Path(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))).parent)
 APP_NAME = 'ambition'
-
-LOG_DIR = os.path.join(os.path.expanduser('~/'), 'logs')
-logging_handler = LOGGING.get('handlers').get('file').get('filename')
-sys.stdout.write(style.SUCCESS(f'Logging to {logging_handler}\n'))
-
+ETC_DIR = os.path.join(BASE_DIR, 'etc')
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -30,9 +22,6 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'django_crypto_fields.apps.AppConfig',
     'django_revision.apps.AppConfig',
-    # 'logentry_admin',
-    # 'registration',
-    # 'django_js_reverse',
     'django_extensions',
     'simple_history',
     'crispy_forms',
@@ -120,6 +109,15 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ambition.wsgi.application'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+        },
+    },
+}
+
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -179,27 +177,26 @@ DATETIME_FORMAT = 'j N Y H:i'
 SHORT_DATE_FORMAT = 'd/m/Y'
 SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/1.11/howto/static-files/
-
+# static
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
 
-GIT_DIR = BASE_DIR
+# edc app specific settings  ################
 
-EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
-LABEL_PRINTER = 'test_label_printer_ambition'
-# EDC_PHARMA_PRESCRIPTION_MODEL = 'edc_pharmacy.prescription'
-
+# edc_base
+MAIN_NAVBAR_NAME = APP_NAME
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
-MAIN_NAVBAR_NAME = APP_NAME
+# edc_lab and label
+EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
+LABEL_PRINTER = 'test_label_printer_ambition'
 
+# edc_sync/sync files
 EDC_SYNC_SERVER_IP = None
 EDC_SYNC_FILES_REMOTE_HOST = None
 EDC_SYNC_FILES_USER = None
 EDC_SYNC_FILES_USB_VOLUME = None
 
+# dashboards
 DASHBOARD_URL_NAMES = {
     'subject_models_url': 'subject_models_url',
     'subject_listboard_url': 'ambition_dashboard:subject_listboard_url',
@@ -215,11 +212,10 @@ DASHBOARD_BASE_TEMPLATES = {
     'subject_dashboard_template': 'ambition_dashboard/subject/dashboard.html',
 }
 
-
+# edc_facility
 HOLIDAY_FILE = os.path.join(BASE_DIR, 'holidays.csv')
 COUNTRY = 'botswana'
 
-# ACCOUNT_ACTIVATION_DAYS = 7
-
+# ambition
 EMAIL_CONTACTS = {
     'ae_reports': 'ambitionreporting@lshtm.ac.uk'}
