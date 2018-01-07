@@ -1,4 +1,7 @@
 # see http://www.simonkrueger.com/2015/05/27/logging-django-apps-to-syslog.html
+import os
+
+from .base import APP_NAME
 
 LOGGING = {
     'version': 1,
@@ -21,11 +24,11 @@ LOGGING = {
         },
     },
     'handlers': {
-        #         'file': {
-        #             'level': 'DEBUG',
-        #             'class': 'logging.FileHandler',
-        #             'filename': os.path.join(LOG_DIR, f'{APP_NAME}-debug.log'),
-        #         },
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': os.path.join(os.path.expanduser('~/'), f'{APP_NAME}-debug.log'),
+        },
         'console': {
             'level': 'DEBUG',
             'filters': ['require_debug_true'],
