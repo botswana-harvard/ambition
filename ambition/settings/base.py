@@ -179,6 +179,7 @@ SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 
 # static
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, APP_NAME, 'static')
 
 # edc app specific settings  ################
 
