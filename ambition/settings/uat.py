@@ -29,7 +29,7 @@ CACHES = {
         'LOCATION': 'unix:/tmp/memcached.sock',
     }
 }
-
+SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 # ambition
 # use the test rando list
