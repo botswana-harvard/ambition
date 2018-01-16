@@ -7,7 +7,6 @@ from django.urls.conf import path, include
 from django.views.generic.base import RedirectView
 from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
-from edc_base.views import LogoutView, LoginView
 from edc_identifier.admin_site import edc_identifier_admin
 from edc_lab.admin_site import edc_lab_admin
 from edc_locator.admin_site import edc_locator_admin
@@ -22,6 +21,22 @@ from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 from .views import HomeView, AdministrationView
 
 urlpatterns = [
+    path('accounts/', include('edc_base.auth.urls')),
+    path('admin/', include('edc_base.auth.urls')),
+    #     path('accounts/login/', LoginView.as_view(), name='login'),
+    #     path('admin/login/', LoginView.as_view(), name='login'),
+    #     path('accounts/logout/', LogoutView.as_view(
+    #         template_name='edc_base/login.html'), name='logout'),
+    #     path('admin/logout/', LogoutView.as_view(
+    #         template_name='edc_base/login.html'), name='logout'),
+    #     path('accounts/password_reset/', LogoutView.as_view(
+    #         template_name='edc_base/login.html'), name='password_reset'),
+    #     path('accounts/password_reset/done/', LogoutView.as_view(
+    #         template_name='edc_base/login.html'), name='password_reset_done'),
+    #     path('accounts/reset/<uidb64>/<token>/', LogoutView.as_view(
+    #         template_name='edc_base/login.html'), name='password_reset_confirm'),
+    #     path('accounts/reset/done/', LogoutView.as_view(
+    # template_name='edc_base/login.html'), name='password_reset_complete'),
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
     path('admin/', ambition_subject_admin.urls),
@@ -68,11 +83,10 @@ urlpatterns = [
     path('edc_sync_files/', include('edc_sync_files.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
     path('tz_detect/', include('tz_detect.urls')),
-    path('login', LoginView.as_view(), name='login_url'),
-    path('accounts/login/', LoginView.as_view(), name='login_url'),
-    # path(r'^accounts/login/', include('registration.backends.hmac.urls')),
-    path('logout', LogoutView.as_view(
-        pattern_name='login_url'), name='logout_url'),
+    # path('accounts/login/', LoginView.as_view(), name='login_url'),
+    # path('logout', LogoutView.as_view(
+    #    pattern_name='login_url'), name='logout_url'),
+    # path('accounts/', include('django.contrib.auth.urls')),
     path('home/', HomeView.as_view(), name='home_url'),
     path('', HomeView.as_view(), name='home_url'),
 ]
