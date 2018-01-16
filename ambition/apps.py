@@ -1,15 +1,19 @@
 import os
 
+from ambition.sites import ambition_sites, fqdn
 from datetime import datetime
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
+from django.apps import apps as django_apps
 from django.conf import settings
-from django.core.management.color import color_style
 from django.core.checks import register
+from django.core.management.color import color_style
+from django.db.models.signals import post_migrate
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
+from edc_base.sites.add_or_update_django_sites import add_or_update_django_sites
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
@@ -24,7 +28,13 @@ from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
 from .system_checks import ambition_check
 
+
 style = color_style()
+
+
+def post_migrate_update_sites(sender=None, **kwargs):
+    add_or_update_django_sites(
+        apps=django_apps, sites=ambition_sites, fqdn=fqdn)
 
 
 class AppConfig(DjangoAppConfig):
@@ -34,6 +44,7 @@ class AppConfig(DjangoAppConfig):
         from ambition_rando.system_checks import randomization_list_check
         register(randomization_list_check)(['ambition'])
         register(ambition_check)
+        post_migrate.connect(post_migrate_update_sites, sender=self)
 
 
 class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
