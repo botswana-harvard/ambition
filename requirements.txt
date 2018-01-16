@@ -1,3 +1,4 @@
+python-memcached
 git+https://github.com/botswana-harvard/ambition-ae.git@develop#egg=ambition_ae
 git+https://github.com/botswana-harvard/ambition-screening.git@develop#egg=ambition_screening
 git+https://github.com/botswana-harvard/ambition-dashboard.git@develop#egg=ambition_dashboard
