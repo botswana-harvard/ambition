@@ -11,7 +11,8 @@ DEBUG = True
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
 # randomly select site
-SITE_ID = random.choice([s[0] for s in ambition_sites])
+# SITE_ID = random.choice([s[0] for s in ambition_sites])
+SITE_ID = 10
 
 # use test rando list
 RANDOMIZATION_LIST_PATH = os.path.join(

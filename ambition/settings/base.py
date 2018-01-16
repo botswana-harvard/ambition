@@ -10,6 +10,8 @@ BASE_DIR = str(Path(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))).parent)
 APP_NAME = 'ambition'
 ETC_DIR = os.path.join(BASE_DIR, 'etc')
+REVIEWER_SITE_ID = 1
+LOGIN_REDIRECT_URL = 'home_url'
 
 # Application definition
 INSTALLED_APPS = [
@@ -24,7 +26,6 @@ INSTALLED_APPS = [
     'django_revision.apps.AppConfig',
     'django_extensions',
     'simple_history',
-    'crispy_forms',
     'tz_detect',
     'corsheaders',
     'rest_framework',

@@ -1,4 +1,4 @@
 from .base import *
 
 # for django.contrib.sites
-SITE_ID = 40
+SITE_ID = 20

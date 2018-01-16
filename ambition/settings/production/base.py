@@ -3,10 +3,11 @@ from ..logging import LOGGING
 
 DEBUG = False
 
-# for django.contrib.sites
-SITE_ID = 40
-
 ETC_DIR = os.path.join('/etc', APP_NAME)
+
+ALLOWED_HOSTS = [
+    'localhost', '127.0.0.1',
+    'ambition.clinicedc.org']
 
 with open(os.path.join(ETC_DIR, 'secret_key')) as f:
     SECRET_KEY = f.read().strip()
