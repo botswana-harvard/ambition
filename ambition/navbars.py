@@ -5,6 +5,20 @@ ambition = Navbar(name='ambition')
 
 ambition.append_item(
     NavbarItem(
+        name='pharmacy',
+        label='Pharmacy',
+        fa_icon='fa-medkit',
+        url_name=f'edc_pharmacy_dashboard:home_url'))
+
+ambition.append_item(
+    NavbarItem(
+        name='lab',
+        label='Specimens',
+        fa_icon='fa-flask',
+        url_name='edc_lab_dashboard:home_url'))
+
+ambition.append_item(
+    NavbarItem(
         name='screened_subject',
         label='Screening',
         fa_icon='fa-user-plus',
@@ -17,18 +31,5 @@ ambition.append_item(
         fa_icon='fa-user-circle-o',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
-ambition.append_item(
-    NavbarItem(
-        name='pharmacy',
-        label='Pharmacy',
-        fa_icon='fa-medkit',
-        url_name=f'edc_pharmacy_dashboard:home_url'))
-
-ambition.append_item(
-    NavbarItem(
-        name='lab',
-        label='Specimens',
-        fa_icon='fa-flask',
-        url_name='edc_lab_dashboard:home_url'))
 
 site_navbars.register(ambition)
