@@ -39,3 +39,7 @@ EDC_SYNC_FILES_USB_VOLUME = None
 # ambition
 # copy final randomization_list.csv' to /etc/ambition
 RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'randomization_list.csv')
+
+CUPS_SERVERS = {
+    'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
+    'localhost': None}

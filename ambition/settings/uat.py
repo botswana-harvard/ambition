@@ -42,4 +42,6 @@ KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 # AUTO_CREATE_KEYS = True
 
 
-CUPS_SERVER = 'bhp.printers.clinicedc.org'
+CUPS_SERVERS = {
+    'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
+    'localhost': None}
