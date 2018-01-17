@@ -2,6 +2,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.update("ambition.settings.production.gaborone")
+os.environ.update(
+    DJANGO_SETTINGS_MODULE="ambition.settings.production.gaborone")
 
 application = get_wsgi_application()
