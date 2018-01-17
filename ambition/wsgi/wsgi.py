@@ -1,12 +1,12 @@
 """
-WSGI config for ambition project.
+Default wsgi for tests and local runserver or single app instance
+setup for uat.
 
-It exposes the WSGI callable as a module-level variable named ``application``.
+If uat, first export the environment variable
 
-For more information on this file, see
-https://docs.djangoproject.com/en/1.10/howto/deployment/wsgi/
+    export DJANGO_SETTINGS_MODULE=ambition.settings.uat
+
 """
-
 import os
 
 from django.core.wsgi import get_wsgi_application
