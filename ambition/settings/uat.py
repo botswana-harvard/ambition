@@ -40,3 +40,6 @@ RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'test_randomization_list.csv')
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 # for first time use as a test UAT server
 # AUTO_CREATE_KEYS = True
+
+
+CUPS_SERVER = 'bhp.printers.clinicedc.org'

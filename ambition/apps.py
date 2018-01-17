@@ -13,7 +13,6 @@ from django.db.models.signals import post_migrate
 from edc_appointment.appointment_config import AppointmentConfig
 from edc_appointment.apps import AppConfig as BaseEdcAppointmentAppConfig
 from edc_base.apps import AppConfig as BaseEdcBaseAppConfig
-from edc_base.sites.add_or_update_django_sites import add_or_update_django_sites
 from edc_constants.constants import FAILED_ELIGIBILITY
 from edc_device.apps import AppConfig as BaseEdcDeviceAppConfig
 from edc_device.constants import CENTRAL_SERVER
@@ -33,6 +32,7 @@ style = color_style()
 
 
 def post_migrate_update_sites(sender=None, **kwargs):
+    from edc_base.sites.utils import add_or_update_django_sites
     add_or_update_django_sites(
         apps=django_apps, sites=ambition_sites, fqdn=fqdn)
 

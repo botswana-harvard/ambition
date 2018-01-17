@@ -1,22 +1,22 @@
 # Settings for development, e.g. tests, runserver
 
-import random
 import sys
 
-from ..sites import ambition_sites
 from .base import *
 
 DEBUG = True
 
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
-# randomly select site
-# SITE_ID = random.choice([s[0] for s in ambition_sites])
-SITE_ID = 10
+SITE_ID = 1
 
 # use test rando list
 RANDOMIZATION_LIST_PATH = os.path.join(
     BASE_DIR, APP_NAME, 'tests', 'test_randomization_list.csv')
+
+CUPS_SERVERS = {
+    'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
+    'localhost': None}
 
 if 'test' in sys.argv:
 
