@@ -52,8 +52,6 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
     protocol_name = 'Ambition'
     protocol_number = '092'
     protocol_title = ''
-    site_code = '40'
-    site_name = 'Gaborone'
     study_open_datetime = datetime(
         2016, 12, 31, 0, 0, 0, tzinfo=gettz('UTC'))
     study_close_datetime = datetime(
@@ -63,8 +61,6 @@ class EdcProtocolAppConfig(BaseEdcProtocolAppConfig):
 class EdcLabAppConfig(BaseEdcLabAppConfig):
     requisition_model = 'ambition_subject.subjectrequisition'
     result_model = 'edc_lab.result'
-    study_site_name = 'Gaborone'
-    site_code = '40'
 
 
 class EdcBaseAppConfig(BaseEdcBaseAppConfig):
