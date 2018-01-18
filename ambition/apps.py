@@ -1,12 +1,8 @@
-import os
-
-from ambition.sites import ambition_sites, fqdn
 from datetime import datetime
 from dateutil.relativedelta import MO, TU, WE, TH, FR, SA, SU
 from dateutil.tz import gettz
 from django.apps import AppConfig as DjangoAppConfig
 from django.apps import apps as django_apps
-from django.conf import settings
 from django.core.checks import register
 from django.core.management.color import color_style
 from django.db.models.signals import post_migrate
@@ -19,12 +15,12 @@ from edc_device.constants import CENTRAL_SERVER
 from edc_facility.apps import AppConfig as BaseEdcFacilityAppConfig
 from edc_identifier.apps import AppConfig as BaseEdcIdentifierAppConfig
 from edc_lab.apps import AppConfig as BaseEdcLabAppConfig
-from edc_label.apps import AppConfig as BaseEdcLabelAppConfig
 from edc_metadata.apps import AppConfig as BaseEdcMetadataAppConfig
 from edc_protocol.apps import AppConfig as BaseEdcProtocolAppConfig
 from edc_visit_tracking.apps import AppConfig as BaseEdcVisitTrackingAppConfig
 from edc_visit_tracking.constants import SCHEDULED, UNSCHEDULED, LOST_VISIT
 
+from .sites import ambition_sites, fqdn
 from .system_checks import ambition_check
 
 
@@ -103,8 +99,3 @@ class EdcFacilityAppConfig(BaseEdcFacilityAppConfig):
                              slots=[100, 100, 100, 100, 100, 100, 100]),
         '5-day clinic': dict(days=[MO, TU, WE, TH, FR],
                              slots=[100, 100, 100, 100, 100])}
-
-
-class EdcLabelAppConfig(BaseEdcLabelAppConfig):
-    template_folder = os.path.join(
-        settings.STATIC_ROOT, 'label_templates')

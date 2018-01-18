@@ -6,9 +6,11 @@ from .base import *
 
 DEBUG = True
 
+ALLOWED_HOSTS = ['localhost', '192.168.157.7']
+
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
-SITE_ID = 1
+SITE_ID = 10
 
 # use test rando list
 RANDOMIZATION_LIST_PATH = os.path.join(
@@ -16,6 +18,7 @@ RANDOMIZATION_LIST_PATH = os.path.join(
 
 CUPS_SERVERS = {
     'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
+    'xxx.printers.clinicedc.org': 'xxx.printers.clinicedc.org',
     'localhost': None}
 
 if 'test' in sys.argv:
