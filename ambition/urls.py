@@ -5,6 +5,7 @@ from ambition_subject.admin_site import ambition_subject_admin
 from django.contrib import admin
 from django.urls.conf import path, include
 from django.views.generic.base import RedirectView
+from django.contrib.auth.views import LogoutView
 from edc_action_item.admin_site import edc_action_item_admin
 from edc_appointment.admin_site import edc_appointment_admin
 from edc_identifier.admin_site import edc_identifier_admin
@@ -19,6 +20,7 @@ from edc_sync_files.admin_site import edc_sync_files_admin
 from edc_visit_schedule.admin_site import edc_visit_schedule_admin
 
 from .views import HomeView, AdministrationView
+from django.conf import settings
 
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
@@ -83,10 +85,8 @@ urlpatterns = [
     path('edc_sync_files/', include('edc_sync_files.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
     path('tz_detect/', include('tz_detect.urls')),
-    # path('accounts/login/', LoginView.as_view(), name='login_url'),
-    # path('logout', LogoutView.as_view(
-    #    pattern_name='login_url'), name='logout_url'),
-    # path('accounts/', include('django.contrib.auth.urls')),
+    path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
+         name='switch_sites_url'),
     path('home/', HomeView.as_view(), name='home_url'),
     path('', HomeView.as_view(), name='home_url'),
 ]

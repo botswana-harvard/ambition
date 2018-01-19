@@ -5,6 +5,8 @@ DEBUG = False
 
 ETC_DIR = os.path.join('/etc', APP_NAME)
 
+INDEX_PAGE = 'https://ambition.clinicedc.org'
+
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
     'ambition.clinicedc.org']

@@ -11,7 +11,7 @@ ALLOWED_HOSTS = ['localhost', '192.168.157.7']
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
 SITE_ID = 10
-
+INDEX_PAGE = 'localhost:8000'
 # use test rando list
 RANDOMIZATION_LIST_PATH = os.path.join(
     BASE_DIR, APP_NAME, 'tests', 'test_randomization_list.csv')

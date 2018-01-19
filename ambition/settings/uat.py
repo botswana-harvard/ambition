@@ -13,6 +13,8 @@ SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 # site is gaborone
 SITE_ID = 10
 
+INDEX_PAGE = 'https://ambition.clinicedc.org'
+
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
     'ambition.clinicedc.org']
