@@ -74,7 +74,7 @@ urlpatterns = [
     path('edc_lab_dashboard/', include('edc_lab_dashboard.urls')),
     path('edc_locator/', include('edc_locator.urls')),
     path('edc_pharmacy/', include('edc_pharmacy.urls')),
-    path('edc_pharmacy_dashboard/', include('edc_pharmacy_dashboard.urls')),
+    # path('edc_pharmacy_dashboard/', include('edc_pharmacy_dashboard.urls')),
     path('edc_label/', include('edc_label.urls')),
     path('edc_metadata/', include('edc_metadata.urls')),
     path('edc_protocol/', include('edc_protocol.urls')),

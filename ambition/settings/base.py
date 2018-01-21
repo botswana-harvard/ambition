@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'edc_sync.apps.AppConfig',
     'edc_sync_files.apps.AppConfig',
     'edc_pharmacy.apps.AppConfig',
-    'edc_pharmacy_dashboard.apps.AppConfig',
+    # 'edc_pharmacy_dashboard.apps.AppConfig',
     'edc_navbar.apps.AppConfig',
     'edc_reference.apps.AppConfig',
     'edc_consent.apps.AppConfig',

@@ -8,7 +8,8 @@ ambition.append_item(
         name='pharmacy',
         label='Pharmacy',
         fa_icon='fa-medkit',
-        url_name=f'edc_pharmacy_dashboard:home_url'))
+        url_name=f'home_url'))
+# url_name=f'edc_pharmacy_dashboard:home_url'))
 
 ambition.append_item(
     NavbarItem(

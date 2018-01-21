@@ -18,7 +18,7 @@ RANDOMIZATION_LIST_PATH = os.path.join(
 
 CUPS_SERVERS = {
     'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
-    'xxx.printers.clinicedc.org': 'xxx.printers.clinicedc.org',
+    'ambition-test.bhp.org.bw': 'ambition-test.bhp.org.bw',
     'localhost': None}
 
 if 'test' in sys.argv:
