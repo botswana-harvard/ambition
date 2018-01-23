@@ -186,12 +186,10 @@ STATIC_ROOT = os.path.join(BASE_DIR, APP_NAME, 'static')
 
 # edc_base
 MAIN_NAVBAR_NAME = APP_NAME
-CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 # edc_lab and label
 EDC_LAB_REQUISITION_MODEL = 'ambition_subject.subjectrequisition'
-LABEL_PRINTER = 'test_label_printer_ambition'
-
+LABEL_TEMPLATE_FOLDER = os.path.join(BASE_DIR, 'label_templates')
 # edc_sync/sync files
 EDC_SYNC_SERVER_IP = None
 EDC_SYNC_FILES_REMOTE_HOST = None
