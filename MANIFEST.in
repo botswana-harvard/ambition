@@ -1,3 +1,4 @@
 include AUTHORS CHANGES README.md LICENCE
 recursive-include ambition/templates/*
 recursive-include ambition/static/*
+recursive-include label_templates/*
