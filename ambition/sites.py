@@ -10,3 +10,7 @@ ambition_sites = (
     (50, 'capetown'),
     (60, 'kampala'),
 )
+
+
+def get_site_id(name):
+    return [site for site in ambition_sites if site[1] == name][0]

@@ -6,7 +6,7 @@ from .logging import LOGGING
 # don't change!
 DEBUG = False
 
-ETC_DIR = os.path.join('/etc', APP_NAME)
+ETC_DIR = os.path.join('/etc', APP_NAME, 'test')
 
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
@@ -21,6 +21,15 @@ ALLOWED_HOSTS = [
 
 # static
 STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+        },
+    },
+}
 
 
 # see https://docs.djangoproject.com/en/2.0/topics/cache/

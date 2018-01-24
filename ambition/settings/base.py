@@ -1,16 +1,14 @@
 import os
 
-from django.core.management.color import color_style
 from pathlib import Path
 
-style = color_style()
-
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = str(Path(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__)))).parent)
+
 APP_NAME = 'ambition'
-ETC_DIR = os.path.join(BASE_DIR, 'etc')
+
 REVIEWER_SITE_ID = 1
+
 LOGIN_REDIRECT_URL = 'home_url'
 
 # Application definition
@@ -110,15 +108,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ambition.wsgi.application'
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
-        },
-    },
-}
-
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
 
@@ -180,7 +169,6 @@ SHORT_DATETIME_FORMAT = 'd/m/Y H:i'
 
 # static
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, APP_NAME, 'static')
 
 # edc app specific settings  ################
 

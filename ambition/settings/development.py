@@ -6,15 +6,30 @@ from .base import *
 
 DEBUG = True
 
+ETC_DIR = os.path.join(BASE_DIR, 'etc')
+
 ALLOWED_HOSTS = ['localhost', '192.168.157.7']
 
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'OPTIONS': {
+            'read_default_file': os.path.join(ETC_DIR, 'mysql.conf'),
+        },
+    },
+}
+
 SITE_ID = 10
+
 INDEX_PAGE = 'localhost:8000'
+
 # use test rando list
 RANDOMIZATION_LIST_PATH = os.path.join(
     BASE_DIR, APP_NAME, 'tests', 'test_randomization_list.csv')
+
+STATIC_ROOT = os.path.join(BASE_DIR, APP_NAME, 'static')
 
 CUPS_SERVERS = {
     'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',

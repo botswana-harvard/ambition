@@ -1,4 +1,5 @@
-from .base import *
+from ...sites import get_site_id
+from .base_live import *
 
 # for django.contrib.sites
-SITE_ID = 10
+SITE_ID = get_site_id('gaborone')
