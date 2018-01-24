@@ -13,4 +13,4 @@ ambition_sites = (
 
 
 def get_site_id(name):
-    return [site for site in ambition_sites if site[1] == name][0]
+    return [site for site in ambition_sites if site[1] == name][0][0]
