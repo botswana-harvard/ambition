@@ -9,6 +9,8 @@ APP_NAME = 'ambition'
 
 REVIEWER_SITE_ID = 1
 
+MYSQL_DIR = os.path.join('/etc', APP_NAME, 'mysql.conf')
+
 LOGIN_REDIRECT_URL = 'home_url'
 
 # Application definition
