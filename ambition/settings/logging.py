@@ -27,7 +27,7 @@ LOGGING = {
         'file': {
             'level': 'DEBUG',
             'class': 'logging.FileHandler',
-            'filename': os.path.join(os.path.expanduser('~/'), f'{APP_NAME}-debug.log'),
+            'filename': os.path.join(os.path.expanduser('~/log'), f'{APP_NAME}-debug.log'),
         },
         'console': {
             'level': 'DEBUG',

@@ -6,7 +6,7 @@ from edc_sync_files.loggers import loggers as edc_sync_files_loggers
 
 
 file_handler['filename'] = os.path.join(
-    os.path.expanduser('~/'), 'ambition.log')
+    os.path.expanduser('~/'), 'ambition-django.log')
 
 loggers = {}
 loggers.update(**edc_sync_loggers)

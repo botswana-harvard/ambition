@@ -13,13 +13,14 @@ cd ~/source/ambition &&\
 export DJANGO_SETTINGS_MODULE=ambition.settings.production.train &&\
 echo $DJANGO_SETTINGS_MODULE"
 
-alias restart_gunicorn="cd ~/source/ambition\
-&& gunicorn -c gunicorn/gaborone.ambition.clinicedc.org.py ambition.wsgi.gaborone --pid /var/log/ambition.gaborone.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/blantyre.ambition.clinicedc.org.py ambition.wsgi.blantyre --pid /var/log/ambition.blantyre.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/lilongwe.ambition.clinicedc.org.py ambition.wsgi.lilongwe --pid /var/log/ambition.lilongwe.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/harare.ambition.clinicedc.org.py ambition.wsgi.harare --pid /var/log/ambition.harare.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/capetown.ambition.clinicedc.org.py ambition.wsgi.capetown --pid /var/log/ambition.capetown.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/kampala.ambition.clinicedc.org.py ambition.wsgi.kampala --pid /var/log/ambition.kampala.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/reviewer.ambition.clinicedc.org.py ambition.wsgi.reviewer --pid /var/log/ambition.reviewer.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/uat.ambition.clinicedc.org.py ambition.wsgi.uat --pid /var/log/ambition.uat.gunicorn.pid --daemon\
-&& gunicorn -c gunicorn/train.ambition.clinicedc.org.py ambition.wsgi.train --pid /var/log/ambition.train.gunicorn.pid --daemon"
+alias restart_gunicorn="cd ~/source/ambition &&\
+. ~/.venvs/ambition/bin/activate &&\
+gunicorn -c gunicorn/gaborone.ambition.clinicedc.org.py ambition.wsgi.gaborone --pid ~/log/ambition.gaborone.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/blantyre.ambition.clinicedc.org.py ambition.wsgi.blantyre --pid ~/log/ambition.blantyre.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/lilongwe.ambition.clinicedc.org.py ambition.wsgi.lilongwe --pid ~/log/ambition.lilongwe.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/harare.ambition.clinicedc.org.py ambition.wsgi.harare --pid ~/log/ambition.harare.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/capetown.ambition.clinicedc.org.py ambition.wsgi.capetown --pid ~/log/ambition.capetown.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/kampala.ambition.clinicedc.org.py ambition.wsgi.kampala --pid ~/log/ambition.kampala.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/reviewer.ambition.clinicedc.org.py ambition.wsgi.reviewer --pid ~/log/ambition.reviewer.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/uat.ambition.clinicedc.org.py ambition.wsgi.uat --pid ~/log/ambition.uat.gunicorn.pid --daemon &&\
+gunicorn -c gunicorn/train.ambition.clinicedc.org.py ambition.wsgi.train --pid ~/log/ambition.train.gunicorn.pid --daemon"
