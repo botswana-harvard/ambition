@@ -1,10 +1,10 @@
-alias restart_gunicorn="cd ~/source/ambition \
-&&gunicorn -c gunicorn/gaborone.py ambition.wsgi.gaborone --pid ~/logs/gunicorn.gaborone.pid --daemon \
-&&gunicorn -c gunicorn/blantyre.py ambition.wsgi.blantyre --pid ~/logs/gunicorn.blantyre.pid --daemon \
-&&gunicorn -c gunicorn/lilongwe.py ambition.wsgi.lilongwe --pid ~/logs/gunicorn.lilongwe.pid --daemon \
-&&gunicorn -c gunicorn/harare.py ambition.wsgi.harare --pid ~/logs/gunicorn.harare.pid --daemon \
-&&gunicorn -c gunicorn/capetown.py ambition.wsgi.capetown --pid ~/logs/gunicorn.capetown.pid --daemon \
-&&gunicorn -c gunicorn/kampala.py ambition.wsgi.kampala --pid ~/logs/gunicorn.kampala.pid --daemon \
-&&gunicorn -c gunicorn/reviewer.py ambition.wsgi.reviewer --pid ~/logs/gunicorn.reviewer.pid --daemon \
-&&gunicorn -c gunicorn/uat.py ambition.wsgi.uat --pid ~/logs/gunicorn.uat.pid --daemon \
-&&gunicorn -c gunicorn/train.py ambition.wsgi.train --pid ~/logs/gunicorn.train.pid --daemon"
+alias restart_gunicorn="cd ~/source/ambition"\
+"&&gunicorn -c gunicorn/gaborone.ambition.clinicedc.org.py ambition.wsgi.gaborone --pid /var/log/ambition.gaborone.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/blantyre.ambition.clinicedc.org.py ambition.wsgi.blantyre --pid /var/log/ambition.blantyre.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/lilongwe.ambition.clinicedc.org.py ambition.wsgi.lilongwe --pid /var/log/ambition.lilongwe.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/harare.ambition.clinicedc.org.py ambition.wsgi.harare --pid /var/log/ambition.harare.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/capetown.ambition.clinicedc.org.py ambition.wsgi.capetown --pid /var/log/ambition.capetown.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/kampala.ambition.clinicedc.org.py ambition.wsgi.kampala --pid /var/log/ambition.kampala.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/reviewer.ambition.clinicedc.org.py ambition.wsgi.reviewer --pid /var/log/ambition.reviewer.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/uat.ambition.clinicedc.org.py ambition.wsgi.uat --pid /var/log/ambition.uat.gunicorn.pid --daemon"\
+"&&gunicorn -c gunicorn/train.ambition.clinicedc.org.py ambition.wsgi.train --pid /var/log/ambition.train.gunicorn.pid --daemon"
