@@ -1,6 +1,9 @@
 import os
 
-SOURCE_ROOT = os.path.expanduser('~/')
+from pathlib import Path
+
+SOURCE_ROOT = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
+
 errorlog = os.path.join(SOURCE_ROOT, 'log/ambition-test-gunicorn-error.log')
 accesslog = os.path.join(SOURCE_ROOT, 'log/ambition-test-gunicorn-access.log')
 loglevel = 'debug'
