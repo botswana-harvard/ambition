@@ -1,0 +1,10 @@
+alias restart_gunicorn="cd ~/source/ambition \
+&&gunicorn -c gunicorn/gaborone.py ambition.wsgi.gaborone --pid ~/logs/gunicorn.gaborone.pid --daemon \
+&&gunicorn -c gunicorn/blantyre.py ambition.wsgi.blantyre --pid ~/logs/gunicorn.blantyre.pid --daemon \
+&&gunicorn -c gunicorn/lilongwe.py ambition.wsgi.lilongwe --pid ~/logs/gunicorn.lilongwe.pid --daemon \
+&&gunicorn -c gunicorn/harare.py ambition.wsgi.harare --pid ~/logs/gunicorn.harare.pid --daemon \
+&&gunicorn -c gunicorn/capetown.py ambition.wsgi.capetown --pid ~/logs/gunicorn.capetown.pid --daemon \
+&&gunicorn -c gunicorn/kampala.py ambition.wsgi.kampala --pid ~/logs/gunicorn.kampala.pid --daemon \
+&&gunicorn -c gunicorn/reviewer.py ambition.wsgi.reviewer --pid ~/logs/gunicorn.reviewer.pid --daemon \
+&&gunicorn -c gunicorn/uat.py ambition.wsgi.uat --pid ~/logs/gunicorn.uat.pid --daemon \
+&&gunicorn -c gunicorn/train.py ambition.wsgi.train --pid ~/logs/gunicorn.train.pid --daemon"
