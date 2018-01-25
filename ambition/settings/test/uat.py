@@ -1,7 +1,7 @@
-from .base import *
+from ..base import *
 
 # overwrite LOGGING from .base to use syslog for logging
-from .logging import LOGGING
+from ..logging import LOGGING
 
 # don't change!
 DEBUG = False
@@ -26,7 +26,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': os.path.join(MYSQL_DIR, 'train.conf'),
+            'read_default_file': os.path.join(MYSQL_DIR, 'uat.conf'),
         },
     },
 }
