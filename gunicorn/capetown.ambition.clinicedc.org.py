@@ -12,6 +12,6 @@ pidfile = os.path.join(SOURCE_ROOT, 'run/ambition-capetown.pid')
 
 workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
-raw_env = [f'DJANGO_SETTINGS_MODULE=ambition.settings.production.capetown']
+raw_env = [f'DJANGO_SETTINGS_MODULE=ambition.settings.live.capetown']
 
 bind = "127.0.0.1:9050"
