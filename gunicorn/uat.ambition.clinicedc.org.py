@@ -5,8 +5,8 @@ from pathlib import Path
 
 SOURCE_ROOT = str(Path(os.path.dirname(os.path.abspath(__file__))).parent)
 
-errorlog = os.path.join(SOURCE_ROOT, 'log/ambition-test-gunicorn-error.log')
-accesslog = os.path.join(SOURCE_ROOT, 'log/ambition-test-gunicorn-access.log')
+errorlog = os.path.join(SOURCE_ROOT, 'log/ambition-uat-gunicorn-error.log')
+accesslog = os.path.join(SOURCE_ROOT, 'log/ambition-uat-gunicorn-access.log')
 loglevel = 'debug'
 pidfile = os.path.join(SOURCE_ROOT, 'run/ambition-uat.pid')
 
