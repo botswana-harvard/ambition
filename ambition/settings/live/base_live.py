@@ -34,7 +34,7 @@ CACHES = {
 }
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
-STATIC_ROOT = os.path.join(str(Path(BASE_DIR).parent), 'static')
+STATIC_ROOT = '/var/www/ambition/live/static'
 
 CUPS_SERVERS = {
     'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',

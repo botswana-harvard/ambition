@@ -10,6 +10,7 @@ ETC_DIR = os.path.join(BASE_DIR, 'etc')
 
 MYSQL_DIR = ETC_DIR
 
+WSGI_APPLICATION = 'ambition.wsgi.wsgi.application'
 
 ALLOWED_HOSTS = ['localhost', '192.168.157.7']
 
