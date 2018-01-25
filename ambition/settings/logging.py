@@ -29,12 +29,12 @@ LOGGING = {
             'class': 'logging.FileHandler',
             'filename': os.path.join(BASE_DIR, 'log', f'{APP_NAME}-django-debug.log'),
         },
-        'console': {
-            'level': 'DEBUG',
-            'filters': ['require_debug_true'],
-            'class': 'logging.StreamHandler',
-            'formatter': 'simple'
-        },
+        #         'console': {
+        #             'level': 'DEBUG',
+        #             'filters': ['require_debug_true'],
+        #             'class': 'logging.StreamHandler',
+        #             'formatter': 'simple'
+        #         },
         'syslog': {
             'level': 'DEBUG',
             'class': 'logging.handlers.SysLogHandler',
@@ -51,12 +51,12 @@ LOGGING = {
         },
         # root logger
         '': {
-            'handlers': ['console', 'syslog'],
+            'handlers': ['syslog'],
             'level': 'INFO',
             'disabled': False
         },
         'ambition': {
-            'handlers': ['console', 'syslog'],
+            'handlers': ['syslog'],
             'level': 'DEBUG',
             'propagate': False,
         },

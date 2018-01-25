@@ -1,3 +1,3 @@
 # defaults to local settings
 
-from .development import *
+from .dev.development import *

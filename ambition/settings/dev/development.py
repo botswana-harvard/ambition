@@ -2,7 +2,7 @@
 
 import sys
 
-from .base import *
+from ..base import *
 
 DEBUG = True
 

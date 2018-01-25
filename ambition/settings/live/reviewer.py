@@ -5,3 +5,7 @@ from .base_live import *
 SITE_ID = get_site_id('reviewer')
 
 WSGI_APPLICATION = 'ambition.wsgi.reviewer.application'
+
+ALLOWED_HOSTS = [
+    'localhost', '127.0.0.1',
+    'reviewer.ambition.clinicedc.org']

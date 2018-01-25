@@ -5,21 +5,21 @@ from ..logging import LOGGING
 
 DEBUG = False
 
-ETC_DIR = os.path.join('/etc', APP_NAME, 'live')
+ETC_DIR = os.path.join('/etc', APP_NAME, 'test')
 
-RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'randomization_list.csv')
+RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'test_randomization_list.csv')
 
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 AUTO_CREATE_KEYS = False
 
-with open(os.path.join(ETC_DIR, 'secret_key')) as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'OPTIONS': {
-            'read_default_file': os.path.join(MYSQL_DIR, 'live.conf'),
+            'read_default_file': os.path.join(MYSQL_DIR, 'test.conf'),
         },
     },
 }
