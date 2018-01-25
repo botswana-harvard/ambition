@@ -10,6 +10,8 @@ ETC_DIR = os.path.join('/etc', APP_NAME, 'test')
 
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
+WSGI_APPLICATION = 'ambition.wsgi.train.application'
+
 # site is gaborone
 SITE_ID = 10
 

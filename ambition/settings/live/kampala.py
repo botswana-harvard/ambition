@@ -3,3 +3,5 @@ from .base_test import *
 
 # for django.contrib.sites
 SITE_ID = get_site_id('kampala')
+
+WSGI_APPLICATION = 'ambition.wsgi.kampala.application'

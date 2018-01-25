@@ -10,6 +10,8 @@ ETC_DIR = os.path.join('/etc', APP_NAME, 'test')
 
 SECRET_KEY = '2^p0phb&x&ntbsduf6afw(@efi(+!&hm_lrjr-+$5v(t0_f+6t'
 
+WSGI_APPLICATION = 'ambition.wsgi.uat.application'
+
 # site is gaborone
 SITE_ID = 10
 
@@ -39,6 +41,7 @@ CACHES = {
         'LOCATION': 'unix:/tmp/memcached.sock',
     }
 }
+
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
 # ambition

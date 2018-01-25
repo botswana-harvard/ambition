@@ -3,3 +3,5 @@ from .base_live import *
 
 # for django.contrib.sites
 SITE_ID = get_site_id('reviewer')
+
+WSGI_APPLICATION = 'ambition.wsgi.reviewer.application'
