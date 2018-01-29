@@ -1,1 +1,1 @@
-# hostname_pattern = '^bcpp0[0-9]{2}$'
+hostname_pattern = '^bcpp0[0-9]{2}$'

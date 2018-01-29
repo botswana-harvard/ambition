@@ -1,21 +1,37 @@
-from edc_base.navbar_item import NavbarItem
-from edc_lab_dashboard.navbars import navbar_items as edc_lab_navbar_items
+from django.conf import settings
+from edc_navbar import NavbarItem, site_navbars, Navbar
+from edc_lab_dashboard.dashboard_urls import dashboard_urls as lab_dashboard_urls
 
-navbars = {}
-navbar_items = []
-config = [
-    ('ambition_subject', 'subjects', 'fa-user-circle-o', 'listboard_url_name'),
-    ('ambition_screening', 'Screening',
-     'fa-user-circle-o', 'listboard_url_name'),
-    ('edc_lab', None, 'fa-flask', 'home_url_name')
-]
-for app_config_name, label, fa_icon, app_config_attr in config:
-    navbar_item = NavbarItem(
-        app_config_name=app_config_name,
-        label=label,
-        fa_icon=fa_icon,
-        app_config_attr=app_config_attr)
-    navbar_items.append(navbar_item)
-navbars.update(default=navbar_items)
+ambition = Navbar(name='ambition')
 
-navbars.update(specimens=edc_lab_navbar_items)
+ambition.append_item(
+    NavbarItem(
+        name='pharmacy',
+        label='Pharmacy',
+        fa_icon='fa-medkit',
+        url_name=f'home_url'))
+# url_name=f'edc_pharmacy_dashboard:home_url'))
+
+ambition.append_item(
+    NavbarItem(
+        name='lab',
+        label='Specimens',
+        fa_icon='fa-flask',
+        url_name=lab_dashboard_urls.get('requisition_listboard_url')))
+
+ambition.append_item(
+    NavbarItem(
+        name='screened_subject',
+        label='Screening',
+        fa_icon='fa-user-plus',
+        url_name=settings.DASHBOARD_URL_NAMES.get('screening_listboard_url')))
+
+ambition.append_item(
+    NavbarItem(
+        name='consented_subject',
+        label='Subjects',
+        fa_icon='fa-user-circle-o',
+        url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
+
+
+site_navbars.register(ambition)

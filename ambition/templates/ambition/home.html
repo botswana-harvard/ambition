@@ -1,4 +1,4 @@
-{% extends base_template_name %}
+{% extends 'ambition/base.html' %}
 {% load staticfiles %}
 
 {% block main %}
@@ -20,23 +20,30 @@
 
 </style>
 
-    {{ block.super }}
+{{ block.super }}
 
 <div class="container bg-3 text-center">
-	<h3 class="text text-muted">Screening</h3>
-		<h3>
-			<a href="{% url 'ambition_screening:listboard_url' %}" class="btn btn-default btn-lg"><i class="fa fa-user-circle-o fa-lg"></i> Screening</a>
-		</h3>
-	<h3 class="text text-muted">Subjects</h3>
-		<h3>
-			<a href="{% url 'ambition_subject:listboard_url' %}" class="btn btn-default btn-lg"><i class="fa fa-user-circle-o fa-lg"></i> Subjects</a>
-		</h3>	
+
+    <p class="h4">
+      <a href="{% url screening_listboard_url %}" class="btn btn-default btn-lg"><i class="fa fa-user-plus fa-lg"></i> Screening</a>
+    </p> 
+    <p class="h4">
+      <a href="{% url subject_listboard_url %}" class="btn btn-default btn-lg"><i class="fa fa-user-circle-o fa-lg"></i> Subjects</a>
+    </p> 
+    <p class="h4">
+      <a href="{% url 'ambition_ae:home_url' %}" class="btn btn-default btn-lg"><i class="fa fa-heartbeat fa-lg"></i> Adverse Events</a>
+    </p> 
+    <p class="h4">
+      <a href="{% url 'edc_action_item:home_url' %}" class="btn btn-default btn-lg"><i class="fa fa-flash fa-lg"></i> Action Items</a>
+    </p> 
+    <p class="h4">
+      <a href="{% url 'edc_sync:home_url' %}" class="btn btn-default btn-lg"><i class="fa fa-exchange fa-lg"></i> Synchronization</a>
+    </p> 
 </div>
 <div class="container bg-3 text-center">
-<h3 class="text text-muted">Transfer data to the server...</h3>
-	<h3>
-	<a href="{% url 'edc_sync:home_url' %}" class="btn btn-default btn-lg"><i class="fa fa-exchange fa-lg"></i> Synchronization</a>
-	</h3>
+    <p class="h4">
+      <a href="/switch_sites/" class="btn btn-default btn-md">Switch Sites</a>
+    </p> 
 </div>
 
 

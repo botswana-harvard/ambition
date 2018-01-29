@@ -1,8 +1,11 @@
-etc/mysql.conf
+django_crypto_fields
+git_pull.sh
+etc/
 .project
 .pydevproject
 .settings/
 *.sqlite3
+.DS_Store
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
