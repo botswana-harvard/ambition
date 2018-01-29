@@ -81,6 +81,7 @@ urlpatterns = [
     path('edc_identifier/', include('edc_identifier.urls')),
     path('edc_reference/', include('edc_reference.urls')),
     path('edc_registration/', include('edc_registration.urls')),
+    path('edc_subject_dashboard/', include('edc_subject_dashboard.urls')),
     path('edc_sync/', include('edc_sync.urls')),
     path('edc_sync_files/', include('edc_sync_files.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),

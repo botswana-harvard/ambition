@@ -1,5 +1,6 @@
 from django.conf import settings
 from edc_navbar import NavbarItem, site_navbars, Navbar
+from edc_lab_dashboard.dashboard_urls import dashboard_urls as lab_dashboard_urls
 
 ambition = Navbar(name='ambition')
 
@@ -16,7 +17,7 @@ ambition.append_item(
         name='lab',
         label='Specimens',
         fa_icon='fa-flask',
-        url_name='edc_lab_dashboard:home_url'))
+        url_name=lab_dashboard_urls.get('requisition_listboard_url')))
 
 ambition.append_item(
     NavbarItem(

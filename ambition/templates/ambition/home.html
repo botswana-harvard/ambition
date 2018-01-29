@@ -20,15 +20,9 @@
 
 </style>
 
-    {{ block.super }}
+{{ block.super }}
 
 <div class="container bg-3 text-center">
-
-      {% if messages %}
-          {% for message in messages %}
-            <div id="alert-print-server-error" class="alert alert-danger"><i class="fa fa-warning fa-lg"></i> {{ message }}</div>
-          {% endfor %}
-      {% endif %}
 
     <p class="h4">
       <a href="{% url screening_listboard_url %}" class="btn btn-default btn-lg"><i class="fa fa-user-plus fa-lg"></i> Screening</a>
