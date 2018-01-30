@@ -8,7 +8,7 @@ DEBUG = False
 ETC_DIR = os.path.join('/etc', APP_NAME, 'live')
 
 RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'randomization_list.csv')
-
+LIVE_SYSTEM = 'LIVE'
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 AUTO_CREATE_KEYS = False
 
