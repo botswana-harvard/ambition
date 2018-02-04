@@ -26,6 +26,9 @@ DATABASES = {
 
 INDEX_PAGE = 'https://ambition.clinicedc.org'
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',

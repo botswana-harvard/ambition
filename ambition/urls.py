@@ -25,20 +25,6 @@ from django.conf import settings
 urlpatterns = [
     path('accounts/', include('edc_base.auth.urls')),
     path('admin/', include('edc_base.auth.urls')),
-    #     path('accounts/login/', LoginView.as_view(), name='login'),
-    #     path('admin/login/', LoginView.as_view(), name='login'),
-    #     path('accounts/logout/', LogoutView.as_view(
-    #         template_name='edc_base/login.html'), name='logout'),
-    #     path('admin/logout/', LogoutView.as_view(
-    #         template_name='edc_base/login.html'), name='logout'),
-    #     path('accounts/password_reset/', LogoutView.as_view(
-    #         template_name='edc_base/login.html'), name='password_reset'),
-    #     path('accounts/password_reset/done/', LogoutView.as_view(
-    #         template_name='edc_base/login.html'), name='password_reset_done'),
-    #     path('accounts/reset/<uidb64>/<token>/', LogoutView.as_view(
-    #         template_name='edc_base/login.html'), name='password_reset_confirm'),
-    #     path('accounts/reset/done/', LogoutView.as_view(
-    # template_name='edc_base/login.html'), name='password_reset_complete'),
     path('admin/', admin.site.urls),
     path('admin/', edc_appointment_admin.urls),
     path('admin/', ambition_subject_admin.urls),
@@ -85,7 +71,6 @@ urlpatterns = [
     path('edc_sync/', include('edc_sync.urls')),
     path('edc_sync_files/', include('edc_sync_files.urls')),
     path('edc_visit_schedule/', include('edc_visit_schedule.urls')),
-    path('tz_detect/', include('tz_detect.urls')),
     path('switch_sites/', LogoutView.as_view(next_page=settings.INDEX_PAGE),
          name='switch_sites_url'),
     path('home/', HomeView.as_view(), name='home_url'),
