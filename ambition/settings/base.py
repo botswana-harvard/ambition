@@ -26,7 +26,6 @@ INSTALLED_APPS = [
     'django_revision.apps.AppConfig',
     'django_extensions',
     'simple_history',
-    'tz_detect',
     'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
@@ -128,6 +127,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.Argon2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+    'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    'django.contrib.auth.hashers.BCryptPasswordHasher',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/

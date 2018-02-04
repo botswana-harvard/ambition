@@ -8,7 +8,7 @@ DEBUG = False
 ETC_DIR = os.path.join('/etc', APP_NAME, 'live')
 
 RANDOMIZATION_LIST_PATH = os.path.join(ETC_DIR, 'randomization_list.csv')
-
+LIVE_SYSTEM = 'LIVE'
 KEY_PATH = os.path.join(ETC_DIR, 'crypto_fields')
 AUTO_CREATE_KEYS = False
 
@@ -26,6 +26,9 @@ DATABASES = {
 
 INDEX_PAGE = 'https://ambition.clinicedc.org'
 
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
@@ -34,7 +37,7 @@ CACHES = {
 }
 SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 
-STATIC_ROOT = '/var/www/ambition/live/static'
+STATIC_ROOT = os.path.expanduser('~/static/live/')
 
 CUPS_SERVERS = {
     'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',

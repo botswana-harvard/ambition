@@ -5,7 +5,7 @@ from ..logging import LOGGING
 
 DEBUG = False
 
-WARNING_MESSAGE = 'This is a test system. Do not use for production data collection! '
+# WARNING_MESSAGE = 'This is a test system. Do not use for production data collection! '
 
 ETC_DIR = os.path.join('/etc', APP_NAME, 'test')
 
@@ -27,6 +27,10 @@ DATABASES = {
 }
 
 INDEX_PAGE = 'https://ambition.clinicedc.org'
+
+CSRF_COOKIE_SECURE = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
 
 CACHES = {
     'default': {
