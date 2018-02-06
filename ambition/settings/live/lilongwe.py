@@ -9,3 +9,5 @@ WSGI_APPLICATION = 'ambition.wsgi.lilongwe.application'
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
     'lilongwe.ambition.clinicedc.org']
+
+TIME_ZONE = 'Africa/Blantyre'
