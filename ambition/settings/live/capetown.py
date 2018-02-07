@@ -9,3 +9,5 @@ WSGI_APPLICATION = 'ambition.wsgi.capetown.application'
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
     'capetown.ambition.clinicedc.org']
+
+TIME_ZONE = 'Africa/Johannesburg'
