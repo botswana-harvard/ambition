@@ -30,7 +30,7 @@ ambition.append_item(
     NavbarItem(
         name='consented_subject',
         label='Subjects',
-        fa_icon='fa-user-circle-o',
+        fa_icon='far fa-user-circle',
         url_name=settings.DASHBOARD_URL_NAMES.get('subject_listboard_url')))
 
 
