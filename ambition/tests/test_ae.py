@@ -17,6 +17,8 @@ from edc_selenium.mixins import SeleniumLoginMixin, SeleniumModelFormMixin
 from model_mommy import mommy
 from selenium.webdriver.firefox.webdriver import WebDriver
 
+from ..sites import ambition_sites
+
 
 style = color_style()
 
@@ -25,6 +27,7 @@ style = color_style()
 class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMixin,
                       StaticLiveServerTestCase):
 
+    default_sites = ambition_sites
     appointment_model = 'edc_appointment.appointment'
     subject_screening_model = 'ambition_screening.subjectscreening'
     subject_consent_model = 'ambition_subject.subjectconsent'
@@ -34,6 +37,8 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        import_randomization_list()
+        import_holidays()
         site_list_data.autodiscover()
         cls.selenium = WebDriver()
         cls.selenium.implicitly_wait(10)
@@ -44,14 +49,12 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
         super().tearDownClass()
 
     def setUp(self):
-        super().setUp()
-        import_randomization_list()
-        import_holidays()
         url_names = (self.extra_url_names
                      + list(settings.DASHBOARD_URL_NAMES.values())
                      + list(settings.LAB_DASHBOARD_URL_NAMES.values())
                      + list(dashboard_urls.values()))
         self.url_names = list(set(url_names))
+        super().setUp()
 
     def go_to_subject_dashboard(self):
 
