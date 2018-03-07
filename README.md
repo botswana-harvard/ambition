@@ -18,7 +18,7 @@
     
     # clone main project
     cd ~/source/
-    git https://github.com/botswana-harvard/ambition.git
+    git https://github.com/ambition-study/ambition.git
     
     # install requirements
     cd ~/source/ambition

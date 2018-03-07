@@ -16,7 +16,8 @@ from edc_lab_dashboard.dashboard_urls import dashboard_urls
 from edc_selenium.mixins import SeleniumLoginMixin, SeleniumModelFormMixin
 from model_mommy import mommy
 from selenium.webdriver.firefox.webdriver import WebDriver
-from ambition.sites import ambition_sites
+
+from ..sites import ambition_sites
 
 style = color_style()
 
@@ -44,8 +45,6 @@ class MySeleniumTests(SiteTestCaseMixin, SeleniumLoginMixin, SeleniumModelFormMi
 
     def setUp(self):
         super().setUp()
-        import_randomization_list()
-        import_holidays()
         url_names = (self.extra_url_names
                      + list(settings.DASHBOARD_URL_NAMES.values())
                      + list(settings.LAB_DASHBOARD_URL_NAMES.values())
