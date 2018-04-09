@@ -53,4 +53,3 @@ python-memcached
 -e /Users/erikvw/source//getresults-identifier  #develop#egg=getresults_identifier
 -e /Users/erikvw/source/django-crypto-fields  #develop#egg=django_crypto_fields
 -e /Users/erikvw/source/django-revision  #develop#egg=django_revision
--e /Users/erikvw/source/django-simple-history  #master#egg=django_simple_history
