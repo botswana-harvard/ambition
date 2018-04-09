@@ -1,5 +1,6 @@
 python-memcached
 git+https://github.com/ambition-study/ambition-ae.git@develop#egg=ambition_ae
+git+https://github.com/ambition-study/ambition-export.git@develop#egg=ambition_export
 git+https://github.com/ambition-study/ambition-screening.git@develop#egg=ambition_screening
 git+https://github.com/ambition-study/ambition-dashboard.git@develop#egg=ambition_dashboard
 git+https://github.com/ambition-study/ambition-metadata-rules.git@develop#egg=ambition_metadata_rules
