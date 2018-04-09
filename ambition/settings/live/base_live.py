@@ -1,5 +1,3 @@
-import os
-
 from ..base import *
 from ..logging import LOGGING
 
