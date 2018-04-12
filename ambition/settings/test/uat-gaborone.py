@@ -1,14 +1,14 @@
 from .base_test import *
 
 # site is gaborone
-#SITE_ID = 10
+SITE_ID = get_site_id('gaborone')
 
-WSGI_APPLICATION = 'ambition.wsgi.uat.application'
+WSGI_APPLICATION = 'ambition.wsgi.uat-gaborone.application'
 
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'uat.ambition.clinicedc.org']
+    'uat-gaborone.ambition.clinicedc.org']
 
 DATABASES = {
     'default': {
@@ -18,3 +18,5 @@ DATABASES = {
         },
     },
 }
+
+TIME_ZONE = 'Africa/Gaborone'
