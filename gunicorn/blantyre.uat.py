@@ -14,6 +14,6 @@ pidfile = os.path.join(SOURCE_ROOT, 'run/ambition-uat-blantyre.pid')
 
 workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
-raw_env = ['DJANGO_SETTINGS_MODULE=ambition.settings.test.uat-blantyre']
+raw_env = ['DJANGO_SETTINGS_MODULE=ambition.settings.test.blantyre.uat']
 
 bind = "127.0.0.1:9140"

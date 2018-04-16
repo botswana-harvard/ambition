@@ -3,12 +3,12 @@ from .base_test import *
 # site is gaborone
 SITE_ID = 10
 
-WSGI_APPLICATION = 'ambition.wsgi.uat-gaborone.application'
+WSGI_APPLICATION = 'ambition.wsgi.gaborone.uat.application'
 
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'uat-gaborone.ambition.clinicedc.org']
+    'gaborone.uat.ambition.clinicedc.org']
 
 DATABASES = {
     'default': {
