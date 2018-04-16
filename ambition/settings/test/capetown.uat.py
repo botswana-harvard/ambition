@@ -3,7 +3,7 @@ from .base_test import *
 # site is gaborone
 SITE_ID = 50
 
-WSGI_APPLICATION = 'ambition.wsgi.capetown.uat.application'
+WSGI_APPLICATION = 'ambition.wsgi.capetown-uat.application'
 
 
 ALLOWED_HOSTS = [
