@@ -1,7 +1,7 @@
 from .base_test import *
 
 # site is gaborone
-SITE_ID = get_site_id('capetown')
+SITE_ID = 50
 
 WSGI_APPLICATION = 'ambition.wsgi.uat-capetown.application'
 
