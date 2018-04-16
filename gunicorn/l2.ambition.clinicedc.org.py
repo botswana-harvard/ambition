@@ -14,6 +14,6 @@ pidfile = os.path.join(SOURCE_ROOT, 'run/ambition-l2.pid')
 
 workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
-raw_env = ['DJANGO_SETTINGS_MODULE=ambition.settings.test.l2']
+raw_env = ['DJANGO_SETTINGS_MODULE=ambition.settings.test.live2']
 
 bind = "127.0.0.1:9170"
