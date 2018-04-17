@@ -1,4 +1,4 @@
-from .base_test import *
+from ..live.base_live import *
 
 # site is gaborone
 SITE_ID = 10
