@@ -8,7 +8,7 @@ WSGI_APPLICATION = 'ambition.wsgi.capetown-uat.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'capetown.uat.ambition.clinicedc.org']
+    'capetown.uat.ambition.bhp.org.bw']
 
 DATABASES = {
     'default': {

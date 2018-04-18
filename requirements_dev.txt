@@ -1,4 +1,4 @@
-python-memcached
+-e .
 -e /Users/erikvw/source/ambition-ae  #develop#egg=ambition_ae
 -e /Users/erikvw/source/ambition-screening  #develop#egg=ambition_screening
 -e /Users/erikvw/source/ambition-dashboard  #develop#egg=ambition_dashboard

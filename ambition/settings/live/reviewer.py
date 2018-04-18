@@ -8,6 +8,6 @@ WSGI_APPLICATION = 'ambition.wsgi.reviewer.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'reviewer.ambition.clinicedc.org']
+    'reviewer.ambition.bhp.org.bw']
 
 TIME_ZONE = 'Africa/Gaborone'

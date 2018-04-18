@@ -14,10 +14,10 @@ activate_test() {
 
 restart_gunicorn_live() {
 activate_live $1;
-gunicorn -c gunicorn/$1.ambition.clinicedc.org.py ambition.wsgi.$1 --pid ~/log/ambition.$1.gunicorn.pid --daemon;
+gunicorn -c gunicorn/$1.ambition.bhp.org.bw.py ambition.wsgi.$1 --pid ~/log/ambition.$1.gunicorn.pid --daemon;
 }
 
 restart_gunicorn_test() {
 activate_test $1;
-gunicorn -c gunicorn/$1.ambition.clinicedc.org.py ambition.wsgi.$1 --pid ~/log/ambition.$1.gunicorn.pid --daemon;
+gunicorn -c gunicorn/$1.ambition.bhp.org.bw.py ambition.wsgi.$1 --pid ~/log/ambition.$1.gunicorn.pid --daemon;
 }

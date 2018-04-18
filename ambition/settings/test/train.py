@@ -8,7 +8,7 @@ WSGI_APPLICATION = 'ambition.wsgi.train.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'train.ambition.clinicedc.org']
+    'train.ambition.bhp.org.bw']
 
 DATABASES = {
     'default': {

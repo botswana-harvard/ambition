@@ -8,6 +8,6 @@ WSGI_APPLICATION = 'ambition.wsgi.capetown.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'capetown.ambition.clinicedc.org']
+    'capetown.ambition.bhp.org.bw']
 
 TIME_ZONE = 'Africa/Johannesburg'

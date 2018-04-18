@@ -8,6 +8,6 @@ WSGI_APPLICATION = 'ambition.wsgi.harare.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'harare.ambition.clinicedc.org']
+    'harare.ambition.bhp.org.bw']
 
 TIME_ZONE = 'Africa/Harare'

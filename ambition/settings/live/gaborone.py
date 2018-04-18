@@ -8,6 +8,6 @@ WSGI_APPLICATION = 'ambition.wsgi.gaborone.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'gaborone.ambition.clinicedc.org']
+    'gaborone.ambition.bhp.org.bw']
 
 TIME_ZONE = 'Africa/Gaborone'

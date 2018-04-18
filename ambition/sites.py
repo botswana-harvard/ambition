@@ -1,5 +1,5 @@
 
-fqdn = 'ambition.clinicedc.org'
+fqdn = 'ambition.bhp.org.bw'
 
 ambition_sites = (
     (1, 'reviewer', ''),

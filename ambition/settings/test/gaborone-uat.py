@@ -8,7 +8,7 @@ WSGI_APPLICATION = 'ambition.wsgi.gaborone-uat.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'gaborone.uat.ambition.clinicedc.org']
+    'gaborone.uat.ambition.bhp.org.bw']
 
 DATABASES = {
     'default': {

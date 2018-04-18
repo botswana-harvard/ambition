@@ -8,6 +8,6 @@ WSGI_APPLICATION = 'ambition.wsgi.blantyre.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'blantyre.ambition.clinicedc.org']
+    'blantyre.ambition.bhp.org.bw']
 
 TIME_ZONE = 'Africa/Blantyre'

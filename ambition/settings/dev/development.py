@@ -1,5 +1,6 @@
 # Settings for development, e.g. tests, runserver
 
+import os
 import sys
 
 from ..base import *
@@ -36,7 +37,7 @@ RANDOMIZATION_LIST_PATH = os.path.join(
 STATIC_ROOT = os.path.join(BASE_DIR, APP_NAME, 'static')
 
 CUPS_SERVERS = {
-    'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
+    'bhp.printers.bhp.org.bw': 'bhp.printers.bhp.org.bw',
     'ambition-test.bhp.org.bw': 'ambition-test.bhp.org.bw',
     'localhost': None}
 

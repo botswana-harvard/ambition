@@ -8,7 +8,7 @@ WSGI_APPLICATION = 'ambition.wsgi.blantyre-uat.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'blantyre.uat.ambition.clinicedc.org']
+    'blantyre.uat.ambition.bhp.org.bw']
 
 DATABASES = {
     'default': {

@@ -8,6 +8,6 @@ WSGI_APPLICATION = 'ambition.wsgi.kampala.application'
 
 ALLOWED_HOSTS = [
     'localhost', '127.0.0.1',
-    'kampala.ambition.clinicedc.org']
+    'kampala.ambition.bhp.org.bw']
 
 TIME_ZONE = 'Africa/Kampala'
