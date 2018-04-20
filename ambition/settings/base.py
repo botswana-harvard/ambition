@@ -219,3 +219,5 @@ EMAIL_CONTACTS = {
 
 # django_revision
 GIT_DIR = BASE_DIR
+
+EXPORT_FOLDER = os.path.expanduser('~/')
