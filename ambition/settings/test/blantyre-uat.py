@@ -1,6 +1,6 @@
 from .base_test import *
 
-# site is gaborone
+# site is blantyre
 SITE_ID = 40
 
 WSGI_APPLICATION = 'ambition.wsgi.blantyre-uat.application'

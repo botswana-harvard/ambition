@@ -26,7 +26,7 @@ DATABASES = {
     },
 }
 
-SITE_ID = 10
+SITE_ID = 40
 
 INDEX_PAGE = 'localhost:8000'
 
