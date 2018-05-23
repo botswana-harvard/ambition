@@ -19,4 +19,4 @@ DATABASES = {
     },
 }
 
-TIME_ZONE = 'Africa/Zimbabwe'
+TIME_ZONE = 'Africa/Gaborone'
