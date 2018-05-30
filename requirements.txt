@@ -48,6 +48,7 @@ git+https://github.com/botswana-harvard/edc-subject-dashboard.git@develop#egg=ed
 git+https://github.com/botswana-harvard/edc-sync-files.git@develop#egg=edc_sync_files
 git+https://github.com/botswana-harvard/edc-sync.git@develop#egg=edc_sync
 git+https://github.com/botswana-harvard/edc-rest.git@develop#egg=edc_rest
+git+https://github.com/botswana-harvard/edc-pdutils.git@develop#egg=edc_pdutils
 git+https://github.com/botswana-harvard/edc-timepoint.git@develop#egg=edc_timepoint
 git+https://github.com/botswana-harvard/edc-visit-schedule.git@develop#egg=edc_visit_schedule
 git+https://github.com/botswana-harvard/edc-visit-tracking.git@develop#egg=edc_visit_tracking

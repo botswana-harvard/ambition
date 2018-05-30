@@ -221,3 +221,7 @@ EMAIL_CONTACTS = {
 GIT_DIR = BASE_DIR
 
 EXPORT_FOLDER = os.path.expanduser('~/')
+
+PARENT_REFERENCE_MODEL1 = 'ambition_ae.aeinitial'
+PARENT_REFERENCE_MODEL2 = 'ambition_ae.aefollowup'
+ACTION_ITEM_MODEL_FK_FIELD = 'ae_initial'
