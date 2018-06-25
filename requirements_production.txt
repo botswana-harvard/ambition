@@ -33,6 +33,7 @@ git+https://github.com/botswana-harvard/edc-model-admin.git@0.1.1#egg=edc-model-
 git+https://github.com/botswana-harvard/edc-model-wrapper.git@0.1.7#egg=edc-model-wrapper
 git+https://github.com/botswana-harvard/edc-navbar.git@0.1.2#egg=edc-navbar
 git+https://github.com/botswana-harvard/edc-offstudy.git@0.2.2#egg=edc-offstudy
+git+https://github.com/botswana-harvard/edc-pdutils.git@0.1.2#egg=edc_pdutils
 git+https://github.com/botswana-harvard/edc-pharmacy.git@0.1.1#egg=edc-pharmacy
 git+https://github.com/botswana-harvard/edc-pharmacy-dashboard.git@0.1.0#egg=edc-pharmacy-dashboard
 git+https://github.com/botswana-harvard/edc-prn.git@0.1.2#egg=edc-prn
