@@ -16,4 +16,4 @@ workers = 2  # the number of recommended workers is '2 * number of CPUs + 1'
 
 raw_env = ['DJANGO_SETTINGS_MODULE=ambition.settings.test.kampala-uat']
 
-bind = "127.0.0.1:9120"
+bind = "127.0.0.1:9121"
