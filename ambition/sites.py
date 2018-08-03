@@ -9,6 +9,7 @@ ambition_sites = (
     (40, 'blantyre', 'Malawi Liverpool Wellcome Trust Clinical Research Programme'),
     (50, 'capetown', 'University of Cape Town'),
     (60, 'kampala', 'IDI Uganda'),
+    (70, 'mbarara', 'Mbarara Regional Referral Hospital'),
 )
 
 
