@@ -22,7 +22,7 @@
     
     # install requirements
     cd ~/source/ambition
-    pip install -r requirements.txt  # or production
+    pip install -r requirements.txt  # or requirements_production.txt
     
     # create database
     mysql -u <user> -p -Bse 'create database ambition character set utf8;'
@@ -36,9 +36,18 @@
     
     # check for any obvious issues
     python manage.py check
+
+
+### Production setup
+
+The production server uses `requirements_production.txt` and the "live" settings in `ambition.settings.live.xxx`, for example, `ambition.settings.live.gaborone`.
+
+#### /etc
+
+For the live server, the settings file places Django's `SECRET_KEY` and `django-crypto-fields` encryption keys in `/etc/ambition/live`. The account used to load the system must have read access to these files.
+
     
-    
- ### Logging for UAT and Production Servers
+### Logging for UAT and Production Servers
  
  If logging through syslog is implemented, you need to configure rsyslog.
  

@@ -226,7 +226,8 @@ def generate_anonymous_transactions(**kwargs):
 
     local_transaction_path = os.path.join(
         env.media_root, 'transactions/pending/')
-    local(f'scp django@{env.host}:{transactions_path}*.txt  {local_transaction_path}')
+    local(
+        f'scp django@{env.host}:{transactions_path}*.txt  {local_transaction_path}')
 
 
 @task
@@ -261,7 +262,8 @@ def get_pip_freeze_list_from_requirements(requirements_file=None):
 def import_anonymous_transactions(**kwargs):
     """Import anonymous transactions.
 
-    fab -P -R mmathethe utils.import_anonymous_transactions:bootstrap_path=/Users/tsetsiba/source/ambition/fabfile/conf/  --user=django
+    fab -P -R mmathethe utils.import_anonymous_transactions:bootstrap_path=
+        /Users/tsetsiba/source/ambition/fabfile/conf/  --user=django
 
     """
     prepare_env(**kwargs)
@@ -324,7 +326,8 @@ def check_repo_status(expected_tag=None, **kwargs):
 def load_keys_ambition(device_role=None, **kwargs):
     """Load keys for project.
 
-    fab -H ambition010 utils.load_keys_ambition:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/,device_role=Client  --user=django
+    fab -H ambition010 utils.load_keys_ambition:bootstrap_path=
+        /Users/imosweu/source/ambition/fabfile/conf/,device_role=Client  --user=django
 
     """
 
@@ -348,7 +351,8 @@ def load_keys_ambition(device_role=None, **kwargs):
 def install_dependency_specific_tag(dependency=None, tag=None, account=None, **kwargs):
     """Install a dependency with a specific tag.
 
-    fab -H ambition010 utils.install_dependency_specific_tag:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/,dependency=ambition-subject,tag=0.1.22  --user=django
+    fab -H ambition010 utils.install_dependency_specific_tag:bootstrap_path=
+        /Users/imosweu/source/ambition/fabfile/conf/,dependency=ambition-subject,tag=0.1.22  --user=django
 
     """
     if not account:
@@ -356,7 +360,8 @@ def install_dependency_specific_tag(dependency=None, tag=None, account=None, **k
     egg = '_'.join(dependency.split('-'))
     prepare_env(**kwargs)
     with cd(env.project_repo_root):
-        run(f'source {activate_venv()} && pip uninstall {dependency}', warn_only=True)
+        run(f'source {activate_venv()} && pip uninstall {dependency}',
+            warn_only=True)
         run(f'pip install git+https://github.com/{account}/'
             f'{dependency}.git@{tag}#egg={egg}')
 
@@ -365,12 +370,14 @@ def install_dependency_specific_tag(dependency=None, tag=None, account=None, **k
 def install_dependency_not_in_requirements(dependency=None, tag=None, **kwargs):
     """Install a dependency with a specific tag.
 
-    fab -H ambition010 utils.install_dependency_not_in_requirements:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/,dependency=ambition-subject,tag=0.1.22  --user=django
+    fab -H ambition010 utils.install_dependency_not_in_requirements:bootstrap_path=
+        /Users/imosweu/source/ambition/fabfile/conf/,dependency=ambition-subject,tag=0.1.22  --user=django
 
     """
     prepare_env(**kwargs)
     with cd(env.project_repo_root):
-        run(f'source {activate_venv()} && pip uninstall {dependency}', warn_only=True)
+        run(f'source {activate_venv()} && pip uninstall {dependency}',
+            warn_only=True)
         run(f'source {activate_venv()} && pip install {dependency}=={tag}')
 
 
@@ -378,7 +385,8 @@ def install_dependency_not_in_requirements(dependency=None, tag=None, **kwargs):
 def remove_old_sync_files(verify=None, **kwargs):
     """Install a dependency with a specific tag.
 
-    fab -H ambition010 utils.remove_old_sync_files:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/  --user=django
+    fab -H ambition010 utils.remove_old_sync_files:bootstrap_path=
+        /Users/imosweu/source/ambition/fabfile/conf/  --user=django
 
     """
     prepare_env(**kwargs)
@@ -403,7 +411,8 @@ def load_containers_task(bootstrap_path=None, bootstrap_branch=None,
 
     For example:
 
-        fab -P -R lentsweletau utils.load_containers_task:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/,file_path=,map_area=
+        fab -P -R lentsweletau utils.load_containers_task:bootstrap_path=
+            /Users/imosweu/source/ambition/fabfile/conf/,file_path=,map_area=
 
     """
 
@@ -428,7 +437,8 @@ def load_containers_task(bootstrap_path=None, bootstrap_branch=None,
 def add_missing_db_column(**kwargs):
     """Add missing DB column.
 
-    fab -P -R mmathethe utils.add_missing_db_column:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/  --user=django
+    fab -P -R mmathethe utils.add_missing_db_column:bootstrap_path=
+        /Users/imosweu/source/ambition/fabfile/conf/  --user=django
 
     """
     prepare_env(**kwargs)
@@ -444,7 +454,8 @@ def add_missing_db_column(**kwargs):
 def ssh_copy_id(bootstrap_path=None, use_local_fabric_conf=None, bootstrap_branch=None):
     """
     Example:
-        fab -R testhosts -P deploy.ssh_copy_id:config_path=/Users/erikvw/source/ambition/fabfile/,bootstrap_branch=develop,local_fabric_conf=True --user=django
+        fab -R testhosts -P deploy.ssh_copy_id:config_path=
+            /Users/erikvw/source/ambition/fabfile/,bootstrap_branch=develop,local_fabric_conf=True --user=django
     """
 
     bootstrap_env(
@@ -469,33 +480,3 @@ def launch_webserver_ambition_task(**kwargs):
     """
     prepare_env(**kwargs)
     launch_webserver()
-
-
-# @task
-# def member_data_edit_mgt_command(map_area=None, **kwargs):
-#     """Run management commands
-#
-#     fab -P -R mmathethe utils.member_data_edit_mgt_command:bootstrap_path=/Users/imosweu/source/ambition/fabfile/conf/,map_area=mmathethe --user=django
-#
-#     """
-#     prepare_env(**kwargs)
-#
-#     with cd(os.path.join(env.project_repo_root)):
-#         run(f'source {activate_venv()} && python manage.py delete_wrong_members'
-#             f' {map_area} ambition-survey.ambition-year-3.{map_area} 5', warn_only=True)
-#         run(f'source {activate_venv()} && python manage.py re_save_reference_data')
-#         run(f'source {activate_venv()} && python manage.py re_save_status_history')
-#
-#
-# @task
-# def update_registration_identifier_mgt_command(map_area=None, **kwargs):
-#     """Run management commands
-#
-#     fab -P -R mmathethe utils.update_registration_identifier:bootstrap_path=/Users/django/source/ambition/fabfile/conf/,map_area=mmathethe --user=django
-#
-#     """
-#     prepare_env(**kwargs)
-#
-#     with cd(os.path.join(env.project_repo_root)):
-# run(f'source {activate_venv()} && python manage.py
-# update_registration_identifier {map_area}')

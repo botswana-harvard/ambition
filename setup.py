@@ -11,12 +11,12 @@ os.chdir(os.path.normpath(os.path.join(os.path.abspath(__file__), os.pardir)))
 
 setup(
     name='ambition',
-    version='0.1.8',
+    version='0.1.14',
     author=u'Erik van Widenfelt',
     author_email='ew2789@gmail.com',
     packages=find_packages(),
     include_package_data=True,
-    url='https://github.com/botswana-harvard/ambition',
+    url='https://github.com/ambition-study/ambition',
     license='GPL license, see LICENSE',
     description='ambition',
     long_description=README,

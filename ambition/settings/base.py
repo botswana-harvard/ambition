@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'ambition_visit_schedule.apps.AppConfig',
     'ambition_ae.apps.AppConfig',
     'ambition_prn.apps.AppConfig',
+    'ambition_export.apps.AppConfig',
     'ambition_screening.apps.AppConfig',
     'ambition.apps.EdcAppointmentAppConfig',
     'ambition.apps.EdcBaseAppConfig',
@@ -218,3 +219,9 @@ EMAIL_CONTACTS = {
 
 # django_revision
 GIT_DIR = BASE_DIR
+
+EXPORT_FOLDER = os.path.expanduser('~/')
+
+PARENT_REFERENCE_MODEL1 = 'ambition_ae.aeinitial'
+PARENT_REFERENCE_MODEL2 = 'ambition_ae.aefollowup'
+ACTION_ITEM_MODEL_FK_FIELD = 'ae_initial'

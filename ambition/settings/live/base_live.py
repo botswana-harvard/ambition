@@ -24,7 +24,7 @@ DATABASES = {
     },
 }
 
-INDEX_PAGE = 'https://ambition.clinicedc.org'
+INDEX_PAGE = 'https://ambition.bhp.org.bw'
 
 SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SECURE = True
@@ -40,7 +40,7 @@ SESSION_ENGINE = 'django.contrib.sessions.backends.cached_db'
 STATIC_ROOT = os.path.expanduser('~/static/live/')
 
 CUPS_SERVERS = {
-    'bhp.printers.clinicedc.org': 'bhp.printers.clinicedc.org',
+    'bhp.printers.bhp.org.bw': 'bhp.printers.bhp.org.bw',
     'localhost': None}
 
 # edc_sync / sync files
